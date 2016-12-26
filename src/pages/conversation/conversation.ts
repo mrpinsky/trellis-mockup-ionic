@@ -2,30 +2,34 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { profiles, documents } from '../../assets/fixtures';
+import { FixtureData } from '../../providers/fixture-data';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'conversation-view',
+  templateUrl: 'conversation.html'
 })
-export class HomePage {
+export class ConversationViewPage {
   thread: Array<{
     id: number,
     authorID: number,
     content: string,
     reactions: {
-      likes: Array<number>,
-      dislikes: Array<number>,
-      agrees: Array<number>,
+      likes: number[],
+      dislikes: number[],
+      agrees: number[],
     },
-    reply_parents: Array<number>;
+    reply_parents: number[];
   }>;
 
-  constructor(public navCtrl: NavController) {
-    const rootPage = documents[0];
-    this.thread = documents.filter((doc) => {
+  constructor(public navCtrl: NavController, private fixtures: FixtureData) {
+    const rootPage = fixtures.documents[0];
+    this.thread = fixtures.documents.filter((doc) => {
+      // Typescript was being difficult
       for (const id in rootPage.reply_parents) {
-        if (!doc.reply_parents.includes(id)) return false;
+        for (const otherID in doc.reply_parents) {
+          if (id === otherID) return true;
+        }
+        return false;
       }
       return true;
     });

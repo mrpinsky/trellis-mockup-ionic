@@ -12,7 +12,7 @@ export class FixtureData {
   private $$profiles: Array<{ id: number, short_text: string }>;
   private $$documents: Array<{
     id: number,
-    authorID: number,
+    authorId: number,
     content: string,
     reactions: {
       likes: Array<number>,
@@ -41,7 +41,7 @@ export class FixtureData {
     this.$$documents = [
       {
         id: 1,
-        authorID: 1,
+        authorId: 1,
         content: "This is the root post",
         reactions: {
           likes: [2],
@@ -52,7 +52,7 @@ export class FixtureData {
       },
       {
         id: 2,
-        authorID: 2,
+        authorId: 2,
         content: "This is a reply with one child.",
         reactions: {
           likes: [],
@@ -63,7 +63,7 @@ export class FixtureData {
       },
       {
         id: 3,
-        authorID: 3,
+        authorId: 3,
         content: "This is a reply with no children.",
         reactions: {
           likes: [],
@@ -74,18 +74,18 @@ export class FixtureData {
       },
       {
         id: 4,
-        authorID: 1,
+        authorId: 1,
         content: "This is a grandchild reply with no children",
         reactions: {
           likes: [],
           dislikes: [],
           agrees: [],
         },
-        reply_parents: [4, 2],
+        reply_parents: [4, 2, 1],
       },
       {
         id: 5,
-        authorID: 3,
+        authorId: 3,
         content: "This is a reply with child and grandchild.",
         reactions: {
           likes: [],
@@ -96,29 +96,29 @@ export class FixtureData {
       },
       {
         id: 6,
-        authorID: 1,
+        authorId: 1,
         content: "This is a grandchild reply with child.",
         reactions: {
           likes: [],
           dislikes: [],
           agrees: [],
         },
-        reply_parents: [6, 5],
+        reply_parents: [6, 5, 1],
       },
       {
         id: 7,
-        authorID: 2,
+        authorId: 2,
         content: "This is a great-grandchild reply (no children).",
         reactions: {
           likes: [1, 2],
           dislikes: [3],
           agrees: [],
         },
-        reply_parents: [7, 6],
+        reply_parents: [7, 6, 5, 1],
       },
       {
         id: 8,
-        authorID: 3,
+        authorId: 3,
         content: "This is another root post that shouldn't be rendered.",
         reactions: {
           likes: [],

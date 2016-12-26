@@ -11,7 +11,7 @@ import { FixtureData } from '../../providers/fixture-data';
 export class ConversationViewPage {
   thread: Array<{
     id: number,
-    authorID: number,
+    authorId: number,
     content: string,
     reactions: {
       likes: number[],
@@ -24,14 +24,9 @@ export class ConversationViewPage {
   constructor(public navCtrl: NavController, private fixtures: FixtureData) {
     const rootPage = fixtures.documents[0];
     this.thread = fixtures.documents.filter((doc) => {
-      // Typescript was being difficult
-      for (const id in rootPage.reply_parents) {
-        for (const otherID in doc.reply_parents) {
-          if (id === otherID) return true;
-        }
-        return false;
-      }
-      return true;
+      return rootPage.reply_parents.reduce((result, id) => {
+        return result && doc.reply_parents.indexOf(id) >= 0;
+      }, true);
     });
   }
 

@@ -9,8 +9,8 @@ import { TodoPage } from '../todo/todo';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  tab1Root: any = TodoPage;
-  tab2Root: any = ConversationViewPage;
+  tab1Root: any = ConversationViewPage;
+  tab2Root: any = TodoPage;
 
   constructor() {
 

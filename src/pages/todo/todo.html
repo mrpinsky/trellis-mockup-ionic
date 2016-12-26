@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      TodoMVC
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-input #input style="font-size: 2em" placeholder="What do you need to do?" (keydown.enter)="addTask(input)"></ion-input>
+
+  <ion-list no-lines>
+    <ion-item-divider>Still To Do</ion-item-divider>
+    <ion-item *ngFor="let task of active()" [ngClass]="{done: task.checked}">
+      <ion-label>{{task.title}}</ion-label>
+      <ion-checkbox [(ngModel)]="task.checked" (ionChange)="save()"></ion-checkbox>
+    </ion-item>
+
+    <ion-item-divider>Completed</ion-item-divider>
+    <ion-item *ngFor="let task of completed()" [ngClass]="{done: task.checked}">
+      <ion-label>{{task.title}}</ion-label>
+      <ion-checkbox [(ngModel)]="task.checked" (ionChange)="save()"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>

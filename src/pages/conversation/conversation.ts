@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 
 import { FixtureData } from '../../providers/fixture-data';
 
+// import { ReactionComponent } from '../../components/reaction/reaction';
+
 @Component({
   selector: 'conversation-view',
   templateUrl: 'conversation.html'
@@ -12,6 +14,7 @@ export class ConversationViewPage {
   thread: Array<{
     id: number,
     authorId: number,
+    title: string,
     content: string,
     reactions: {
       likes: number[],
@@ -30,7 +33,7 @@ export class ConversationViewPage {
     });
   }
 
-  get rootPage() {
+  get rootPost() {
     return this.thread[0];
   }
 

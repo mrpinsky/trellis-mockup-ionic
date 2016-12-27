@@ -1,3 +1,10 @@
-page-home {
+$post-content-bg: #f0f0f0;
 
+conversation-view {
+  ion-card-content {
+    p {
+      background-color: $post-content-bg;
+      white-space: pre-wrap;
+    }
+  }
 }

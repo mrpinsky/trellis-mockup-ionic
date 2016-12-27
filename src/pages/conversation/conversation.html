@@ -1,11 +1,30 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Conversation</ion-title>
+    <ion-title>Conversations</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{rootPost.title}}</ion-card-title>
+      <p>
+        {{rootPost.content}}
+      </p>
+      <reactions-bar [reactions]="rootPost.reactions"></reactions-bar>
+    </ion-card-content>
+  </ion-card>
+  <ion-item-divider>Replies</ion-item-divider>
   <ion-list>
-    <ion-item *ngFor="let post of thread">{{post.content}}</ion-item>
+    <ion-card *ngFor="let reply of replies">
+      <ion-card-header>
+        {{fixtures.getProfileById(reply.authorId).short_text}}
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          {{reply.content}}
+        </p>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>

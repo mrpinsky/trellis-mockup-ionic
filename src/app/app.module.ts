@@ -5,6 +5,7 @@ import { FixtureData } from '../providers/fixture-data';
 import { MyApp } from './app.component';
 import { TodoPage } from '../pages/todo/todo';
 import { ConversationViewPage } from '../pages/conversation/conversation';
+import { ReactionsBarComponent } from '../components/reactions-bar/reactions-bar';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     MyApp,
     TodoPage,
     ConversationViewPage,
+    ReactionsBarComponent,
     TabsPage
   ],
   imports: [

@@ -11,20 +11,18 @@
       <p>
         {{rootPost.content}}
       </p>
-      <reactions-bar [reactions]="rootPost.reactions"></reactions-bar>
+      <post-footer [reactions]="rootPost.reactions"></post-footer>
     </ion-card-content>
   </ion-card>
   <ion-item-divider>Replies</ion-item-divider>
-  <ion-list>
-    <ion-card *ngFor="let reply of replies">
-      <ion-card-header>
-        {{fixtures.getProfileById(reply.authorId).short_text}}
-      </ion-card-header>
-      <ion-card-content>
-        <p>
-          {{reply.content}}
-        </p>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+  <ion-card *ngFor="let reply of replies">
+    <ion-card-header>
+      {{fixtures.getProfileById(reply.authorId).short_text}}
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        {{reply.content}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

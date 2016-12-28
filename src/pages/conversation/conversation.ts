@@ -4,8 +4,6 @@ import { NavController } from 'ionic-angular';
 
 import { FixtureData } from '../../providers/fixture-data';
 
-// import { ReactionComponent } from '../../components/reaction/reaction';
-
 @Component({
   selector: 'conversation-view',
   templateUrl: 'conversation.html'

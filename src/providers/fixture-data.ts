@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { DocumentComponent } from '../components/document/document';
 import 'rxjs/add/operator/map';
 
 /*

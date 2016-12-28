@@ -23,7 +23,9 @@ export class PostFooterComponent {
 
   testCheckboxResult: any;
 
-  constructor(private alertCtrl: AlertController, private fixtures: FixtureData) {}
+  constructor(private alertCtrl: AlertController, private fixtures: FixtureData) {
+    // this.updateReactions.bind(this);
+  }
 
   get reactionTypes() {
     return Object.keys(this.reactions);
@@ -57,7 +59,9 @@ export class PostFooterComponent {
       buttons: [
         {
           text: 'Okay',
-          handler: this.updateReactions,
+          handler: (data) => {
+            this.updateReactions(data);
+          },
         }
       ]
     });
@@ -65,10 +69,12 @@ export class PostFooterComponent {
   }
 
   updateReactions(data) {
-    this.reactionTypes.forEach((rxn) => {
-      if (data.findIndex(rxn) >= 0) {
-        if (this.reactions[rxn].findIndex(2) >= 0) {}
+    ["likes", "dislikes", "agrees"].forEach((rxn) => {
+      this.reactions[rxn] = this.reactions[rxn].filter((id) => id !== 2);
+      if (data.findIndex(r => r === rxn) >= 0) { // if the box was checked...
+        this.reactions[rxn].push(2); // add me
       }
-    })
+    });
+
   }
 }

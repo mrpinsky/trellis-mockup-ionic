@@ -32,7 +32,7 @@
             <use href="#svg-icon-fontawesome-webfont-16"></use>
           </svg>
         </div>
-        <!-- <reaction-stack item="item" class="flex nostretch"></reaction-stack> -->
+        <post-footer [reactions]="item.reactions" class="flex nostretch"></post-footer>
         <div class="trellis-button flex nostretch" [ngClass]="{'fg-gray-3': item.$permission < 2}">
           <svg class="icon-2">
             <use href="#svg-icon-florence-icons-02"></use>
@@ -45,8 +45,8 @@
       </div>
     </div>
     <div class="list-panel border-top-blue-2">
-      <!-- <flo-comment comment="item" class="content-panel" *ngFor="let item of item.replies">
-      </flo-comment> -->
+      <flo-comment [comment]="item" class="content-panel" *ngFor="let item of item.replies">
+      </flo-comment>
     </div>
   </div>
 

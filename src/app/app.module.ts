@@ -7,6 +7,7 @@ import { TodoPage } from '../pages/todo/todo';
 import { ConversationViewPage } from '../pages/conversation/conversation';
 import { IoniclessConvoPage } from '../pages/ionicless/ionicless';
 import { PostFooterComponent } from '../components/post-footer/post-footer';
+import { FloCommentComponent } from '../components/flo-comment/flo-comment';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     ConversationViewPage,
     IoniclessConvoPage,
     PostFooterComponent,
+    FloCommentComponent,
     TabsPage
   ],
   imports: [

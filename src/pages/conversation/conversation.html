@@ -17,7 +17,7 @@
   <ion-item-divider>Replies</ion-item-divider>
   <ion-card *ngFor="let reply of replies">
     <ion-card-header>
-      {{fixtures.getProfileById(reply.authorId).short_text}}
+      {{fixtures.getProfileById(reply.editors[0]).short_text}}
     </ion-card-header>
     <ion-card-content>
       <p>

@@ -1,0 +1,50 @@
+.profile-name {
+  font-family: $font-family-base;
+  font-weight: $font-medium;
+  color: $lime;
+  cursor: pointer;
+  // white-space: nowrap;
+}
+
+%profile-image {
+  border-radius: 0.1875em;
+}
+
+@for $i from 1 through 7 {
+  img.profile-image-#{$i}, .profile-image-#{$i} {
+    @extend %profile-image;
+    @extend .icon-#{$i};
+    // height: nth($image-sizes, $i);
+  }
+}
+
+.profile-panel {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 0.5em;
+  > img {
+    margin-right: 0.5em;
+  }
+}
+
+at-mention {
+  display: inline;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.person-selector {
+  color: $lime;
+  font-style: italic;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  &:hover,
+  &.active {
+    color: $white;
+    text-shadow: 1px 1px 1px $gray-6;
+    background-color: $lime;
+  }
+}

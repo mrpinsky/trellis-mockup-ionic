@@ -1,0 +1,44 @@
+.trellis-button {
+  //@extend .child-horizontal-margin;
+  color: $gray-7;
+  background-color: $white;
+  padding: 0.25em 0.75em;
+  border-radius: 0.25em;
+  text-transform: uppercase;
+  font-family: $font-family-base;
+  font-weight: $font-medium;
+  font-size: $font-size-small;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+
+  > svg {
+    margin: 0 0.25em 0 0.25em;
+  }
+
+  &.disabled {
+    color: $gray-3;
+    background-color: $gray-1;
+  }
+}
+
+.trellis-toggle {
+  color: $gray-7;
+  cursor: pointer;
+  font-size: $font-size-small;
+  font-weight: $font-medium;
+  padding: 0.25em;
+  margin: 0 0.125em;
+  background-color: $gray-1;
+  &.active {
+    border-top: 0.1875em solid $blue-1;
+    border-bottom: 0.1875em solid $blue-1;
+    background-color: fade-out($blue-1, .80);
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}

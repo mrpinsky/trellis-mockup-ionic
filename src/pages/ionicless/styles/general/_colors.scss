@@ -1,0 +1,51 @@
+$grays: $gray-1 $gray-2 $gray-3 $gray-4 $gray-5 $gray-6 $gray-7 $gray-8 $gray-9 $gray-10;
+$othercolors: $blue-1 $blue-2 $raspberry $tangerine $lime $teal $gold $white $green;
+$othercolornames: 'blue-1' 'blue-2' 'raspberry' 'tangerine' 'lime' 'teal' 'gold' 'white' 'green';
+$foregroundcolors: $white $white $white $white $white $white $white $primary-text $white;
+
+@for $i from 1 through 9 {
+  .bg-#{nth($othercolornames, $i)} {
+    background-color: nth($othercolors, $i);
+    color: nth($foregroundcolors, $i);
+  }
+  .fg-#{nth($othercolornames, $i)} {
+    color: nth($othercolors, $i);
+  }
+  .fill-#{nth($othercolornames, $i)} {
+    fill: nth($othercolors, $i);
+  }
+}
+
+@for $i from 1 through 10 {
+  .bg-gray-#{$i} {
+    background-color: nth($grays, $i);
+    @if $i >= 5 {
+     color: $light-text;
+    } @else {
+      color: $primary-text;
+    }
+  }
+  .fill-gray-#{$i} {
+    fill: nth($grays, $i);
+  }
+  .fg-gray-#{$i} {
+    color: nth($grays, $i);
+  }
+  .border-gray-#{$i} {
+    border: solid 0.125em nth($grays, $i);
+  }
+}
+
+
+// $light-gray: #f2f2f2;
+// $lighter-gray: #f7f7f7;
+// $medlight-gray: #d5d5d5;
+// $medium-gray: #666;
+// $medium-dark-gray: #4d4d4d;
+// $lighter-medium-gray: #999;
+// $dark-gray: #333;
+// $darker-gray: #2e2e2e;
+// $warm-gray: #838383;
+// $dark-warm-gray: #3f3e3e;
+
+// $brand-primary: #428bca;

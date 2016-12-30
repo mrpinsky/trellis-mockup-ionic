@@ -1,0 +1,59 @@
+.menu-button {
+  position: relative;
+}
+
+.trellis-dropdown-menu {
+  z-index: $z-index-menu;
+  position: absolute;
+  top: 100%;
+  left: auto;
+  right: 0;
+  width: auto;
+  min-width: 300px;
+  height: auto;
+  max-height: 75vh;
+  box-shadow: 0.375em 0.375em 0.9375em $gray-5;
+  list-style: none;
+  text-align: left;
+  cursor: pointer;
+  line-height: 1.875em;
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+
+  &.inline {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &.left {
+    left: 0;
+    right: auto;
+  }
+
+  &.open-upwards {
+    bottom: 100%;
+    top: initial;
+  }
+
+  &.wide {
+    left: 0;
+    right: 0;
+  }
+
+
+  li {
+    @extend %menu-list-item;
+  }
+}
+
+.wide-menu {
+  min-width: 30vw;
+}
+
+.trellis-dropdown-menu-button--open {
+  z-index: $z-index-menu;
+  position: relative;
+}

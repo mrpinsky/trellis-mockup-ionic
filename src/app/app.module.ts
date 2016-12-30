@@ -14,6 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     MyApp,
     TodoPage,
     ConversationViewPage,
+    IoniclessConvoPage,
     PostFooterComponent,
     TabsPage
   ],
@@ -25,6 +26,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     MyApp,
     TodoPage,
     ConversationViewPage,
+    IoniclessConvoPage,
     TabsPage
   ],
   providers: [

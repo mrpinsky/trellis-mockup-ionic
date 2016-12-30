@@ -1,0 +1,30 @@
+%icon {
+  vertical-align: text-bottom;
+  line-height: 1;
+  &.shadow {
+    filter: drop-shadow(1px 1px 1px $gray-8);
+  }
+  &.mirror-flip {
+    transform: scaleX(-1);
+  }
+}
+
+@for $i from 1 through 7 {
+  img.icon-#{$i}, .icon-#{$i} {
+    @extend %icon;
+    min-height: nth($image-sizes, $i);
+    max-height: nth($image-sizes, $i);
+    min-width: nth($image-sizes, $i);
+    max-width: nth($image-sizes, $i);
+  }
+}
+
+.icon-fillparent {
+  width: 100%;
+  height: auto;
+}
+
+.max-image {
+  max-width: 100%;
+  max-height: 100%;
+}

@@ -1,0 +1,38 @@
+.notification {
+  &.read {
+    border: 2px solid $gray-4;
+  }
+  &.fresh {
+    border: 3px solid $raspberry;
+  }
+}
+
+.unread-reply {
+  border: 2px dotted $raspberry;
+}
+
+.notify-icon {
+  background-color: $gray-2;
+  color: $raspberry;
+  border-right: 2px solid $raspberry;
+}
+
+.badge-topline {
+  top: -13px;
+  left: 11px;
+  position: absolute;
+  padding: 0.05em 0.4em;
+  font-size: .85em;
+  font-weight: normal;
+  color: $white;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 20px;
+  border-bottom-right-radius: 90px;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  border: 0.1em #161616 solid;
+  cursor: pointer;
+  min-width: 25px;
+}

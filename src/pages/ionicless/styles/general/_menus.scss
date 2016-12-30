@@ -1,0 +1,20 @@
+%menu-list-item {
+  text-indent: 0.625em;
+  line-height: 3;
+}
+
+%menu-list-item-selectable {
+  border-bottom: $gray-7 solid 0.1em;
+  cursor: pointer;
+  &:hover,
+  &.active {
+    //color: $light-text;
+    // font-weight: $font-medium;
+    border-bottom: 0.16em $blue-1 solid;
+  }
+}
+
+.fancy-menu-item {
+  @extend %menu-list-item;
+  @extend %menu-list-item-selectable;
+}

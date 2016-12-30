@@ -1,0 +1,155 @@
+%panelbase {
+  //background-color: $white;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: stretch;
+  color: $primary-text;
+}
+
+%panelheader {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.section-panel {
+  @extend %panelbase;
+  background-color: $white;
+  padding: 1em;
+  @media (min-width: $narrow-breakpoint) {
+    margin: 0.5em;
+    box-shadow: 0.0625em 0.0625em 0.25em $gray-5;
+  }
+}
+
+.well {
+  @extend %panelbase;
+  background-color: $gray-1;
+  border-radius: 0.25em;
+  flex: 1 1 auto;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+}
+
+.editor-panel {
+  @extend %panelbase;
+  padding: 1em;
+  background-color: $white;
+  margin: 1em;
+  border-radius: 0.125em;
+}
+
+.section-panel-noshadow {
+  @extend %panelbase;
+  padding: 1.5em;
+}
+
+.content-panel {
+  @extend %panelbase;
+}
+
+.shrink-panel {
+  @extend %panelbase;
+  flex: 0 1 auto;
+}
+
+.grow-panel {
+  @extend %panelbase;
+  flex: 1 1 auto;
+}
+
+.stretch-row {
+  @extend %panelbase;
+  //@extend .child-horizontal-margin;
+  flex: 1 1 auto;
+  flex-direction: row;
+}
+
+.nostretch-row {
+  @extend %panelbase;
+  @extend .child-horizontal-margin;
+  flex: 0 1 auto;
+  flex-direction: row;
+}
+
+.inset-list-panel {
+  @extend %panelbase;
+  background-color: $white;
+  @media (min-width: $narrow-breakpoint) {
+    margin: 0 2em;
+    padding: 1.5em;
+  }
+  @media (max-width: $narrow-breakpoint) {
+    padding: 1.5em;
+  }
+}
+
+.panelheader-dark {
+  @extend %panelheader;
+  background-color: $gray-7;
+  color: $light-text;
+  padding: 0.25em 0.5em;
+}
+
+.inset-scroll-panel {
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 1em;
+}
+
+.panelheader-raspberry {
+  @extend %panelheader;
+  background-color: $raspberry;
+  color: $light-text;
+}
+
+.list-panel {
+  @extend %panelbase;
+  > * {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border-bottom: 0.15em solid $gray-3;
+  }
+  > :first-child {
+    padding-top: 0;
+  }
+  > :last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+.inset-content-panel {
+  padding: 1.5em;
+  @media (min-width: $narrow-breakpoint) {
+    margin: 0 0 0 1em;
+  }
+}
+
+.panelheader-tabs {
+  @extend %panelheader;
+  background-color: $gray-6;
+  padding: 0.25em 0.5em 0 0.5em;
+  color: $light-text;
+  border-radius: 3px 3px 0 0;
+  line-height: 2.15;
+
+}
+
+.panel-tab {
+  position: relative;
+  margin: 0.25em 0.25em -1px 0;
+  border-radius: 2px 2px 0 0;
+  padding: 0 0.5em;
+  &.active {
+    background-color: $white;
+    color: $gray-8;
+    box-shadow: $gray-8 3px -2px 1px;
+  }
+}

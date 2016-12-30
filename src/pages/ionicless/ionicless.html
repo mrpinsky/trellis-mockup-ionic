@@ -1,0 +1,76 @@
+<div class="drawer-container">
+  <!-- <trellis-drawer trellis-id="conversationDetails" drawer-class="bg-white">
+    <div class="child-vertical-margin" ng-include="'app/conversations/conversations-detail-details.template.html'"></div>
+  </trellis-drawer> -->
+
+  <!-- <trellis-drawer trellis-id="conversationDetailActions" force-narrow="true" side="right" drawer-class="bg-gray-9">
+    <div ng-include="'app/conversations/conversations-detail-actions.template.html'"></div>
+  </trellis-drawer> -->
+
+  <div class="inner-content inset-content-panel bg-white">
+    <div class="content-panel child-vertical-padding">
+      <div class="conversation-information">
+        <div class="participant-avatar margin-right" *ngIf="item.editors.length < 2">
+          <img class="profile-image-6 border-8" ng-src="{{item.editors[0].image_url}}">
+        </div>
+        <div class="flex margin wrap nostretch shrinkable">
+          <div class="conversation-information">published by:</div>
+          <div class="profile-name" ng-repeat="editor in item.editors">
+            {{editor.name}}{{$last?'':','}}&ensp;
+          </div>
+        </div>
+      </div>
+
+
+      <div class="content-panel conversation-body">
+      </div>
+
+      <div class="flex row end margin-bottom">
+        <div class="trellis-button" ng-click="trellis.Globals.profile.$toggle('followingDocuments', item)" ng-if="item.reply_parents.length === 1">
+          <svg class="icon-2 fg-raspberry" ng-if="trellis.Globals.profile.$in('followingDocuments', item)">
+            <use xlink:href="#svg-icon-fontawesome-webfont-16"></use>
+          </svg>
+          <svg class="icon-2" ng-if="!trellis.Globals.profile.$in('followingDocuments', item)">
+            <use xlink:href="#svg-icon-rss-2"></use>
+          </svg>
+        </div>
+        <reaction-stack item="item" class="flex nostretch"></reaction-stack>
+        <div class="trellis-button flex nostretch" ng-click="reply()" ng-class="{'fg-gray-3': item.$permission < 2}">
+          <div ng-if="!trellis.MatchMedia.xs">REPLY</div>
+          <svg class="icon-2">
+            <use xlink:href="#svg-icon-florence-icons-02"></use>
+          </svg>
+          <div class="tally">{{item.replies.length}}</div>
+        </div>
+          <svg class="icon-3 fg-raspberry" ng-if="viewOnly">
+            <use xlink:href="#svg-icon-restricted"></use>
+          </svg>
+      </div>
+    </div>
+    <div class="list-panel border-top-blue-2">
+      <flo-comment comment="item" class="content-panel" ng-repeat="item in item.replies | zoomTo:zoom | span:{from: from, to: to} track by item.$id" on-zoom="zoomTo(id)" on-reply="reply(reply)">
+      </flo-comment>
+    </div>
+    <div ng-if="item.is('agenda')">
+      <session-summary session="session.as('session', true)" ng-repeat="session in item.collection | orderBy:session.extended.begin track by session.$id" context="agenda">
+      </session-summary>
+    </div>
+  </div>
+
+
+  <trellis-drawer trellis-id="replyEditorDrawer" side="bottom" drawer-class="bg-gray-9" force-narrow="true">
+    <div class="bg-gray-9 padding" ng-include="'app/conversations/replyEditor.template.html'"></div>
+  </trellis-drawer>
+</div>
+
+<trellis-modal options="{type: 'dialog', buttons: ['cancel'], title: 'VIEW RIGHTS ONLY'}" trellis-id="conversationNoComment">
+  <div class="content-panel list-panel bg-white padding-bottom-double">
+    <div class="well">
+      You currently do not have permission to reply to this conversation. In order to do so, you must be a member of one of the communities that this conversation was shared with. You can join one of those communities below.
+    </div>
+    <div class="flex" ng-repeat="community in item.communities | removeErrors track by community.$id">
+      <div class="community-name">{{community.name}}</div>
+      <div class="trellis-button pin-right bg-green" ng-click="joinPressed(community.$id)">JOIN</div>
+    </div>
+  </div>
+</trellis-modal>

@@ -1,5 +1,5 @@
 .menu-button {
-  position: relative;
+  // position: relative;
 }
 
 .trellis-dropdown-menu {
@@ -9,7 +9,7 @@
   left: auto;
   right: 0;
   width: auto;
-  min-width: 300px;
+  min-width: 200px;
   height: auto;
   max-height: 75vh;
   box-shadow: 0.375em 0.375em 0.9375em $gray-5;
@@ -22,6 +22,7 @@
   justify-content: flex-start;
   align-items: stretch;
   flex-direction: column;
+  overflow-y: scroll;
 
   &.inline {
     overflow-y: auto;

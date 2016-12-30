@@ -1,0 +1,8 @@
+<div *ngIf="open"
+  class="trellis-dropdown-menu arrow"
+  [ngClass]="{'open-upwards': openUp}">
+  <ng-content></ng-content>
+</div>
+<div *ngIf="open &amp;&amp; closeOnOutsideClick" class="trellis-backdrop trellis-menu-backdrop" (click)="close()">
+  <!-- click catcher to close on outside click -->
+</div>

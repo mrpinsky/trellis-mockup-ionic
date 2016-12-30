@@ -10,9 +10,9 @@ import { IoniclessConvoPage } from '../ionicless/ionicless';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  tab1Root: any = ConversationViewPage;
+  tab1Root: any = IoniclessConvoPage;
   tab2Root: any = TodoPage;
-  tab3Root: any = IoniclessConvoPage;
+  tab3Root: any = ConversationViewPage;
 
   constructor() {
 

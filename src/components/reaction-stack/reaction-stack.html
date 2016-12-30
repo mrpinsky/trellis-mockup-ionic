@@ -1,0 +1,68 @@
+<div class="menu-button">
+  <div
+  type="button"
+  class="trellis-button no-wrap bg-white"
+  [ngClass]="{'trellis-dropdown-menu-button--open': showingReactions}"
+  (click)="showingReactions = !showingReactions">
+    <svg class="icon-3 fill-gray-7"><use href="#svg-icon-florence-icons-04-1"></use></svg>
+    <span class="tally">{{totalReactions}}</span>
+  </div>
+
+  <trellis-menu [closeOnSelect]="false" [closeOnOutsideClick]="true" [open]="showingReactions">
+    <div class="bg-white fg-gray-7 border-raspberry">
+      <div (click)="$toggle('likes', fixtures.getProfileById(2))">
+        <svg class="icon-3 fill-gray-7">
+          <use href="#svg-icon-thumbs-up"></use>
+        </svg>
+        <span class="tally">{{reactions.likes.length}} </span>
+        <span *ngIf="!$in('likes', fixtures.getProfileById(2))">
+          LIKE
+        </span>
+        <span *ngIf="$in('likes', fixtures.getProfileById(2))">
+          (YOU LIKED)
+        </span>
+      </div>
+        <div class="border-bottom-4 margin-left-double" *ngIf="showing.likes">
+          <div class="profile-name" *ngFor="let profile of likes">
+            {{fixtures.getProfileById(profile).short_text}}
+          </div>
+        </div>
+
+      <div (click)="$toggle('dislikes', fixtures.getProfileById(2))">
+        <svg class="icon-3 fill-gray-7">
+          <use href="#svg-icon-thumbs-up"></use>
+        </svg>
+        <span class="tally">{{reactions.dislikes.length}} </span>
+        <span *ngIf="!$in('dislikes', fixtures.getProfileById(2))">
+          DISLIKE
+        </span>
+        <span *ngIf="$in('dislikes', fixtures.getProfileById(2))">
+          (YOU DISLIKED)
+        </span>
+      </div>
+        <div class="border-bottom-4 margin-left-double" *ngIf="showing.dislikes">
+          <div class="profile-name" *ngFor="let profile of dislikes">
+            {{fixtures.getProfileById(profile).short_text}}
+          </div>
+        </div>
+
+      <div (click)="$toggle('agrees', fixtures.getProfileById(2))">
+        <svg class="icon-3 fill-gray-7">
+          <use href="#svg-icon-check-circle"></use>
+        </svg>
+        <span class="tally">{{reactions.agrees.length}}</span>
+        <span *ngIf="!$in('agrees', fixtures.getProfileById(2))">
+          AGREE
+        </span>
+        <span *ngIf="$in('agrees', fixtures.getProfileById(2))">
+          (YOU AGREED)
+        </span>
+      </div>
+        <div class="border-bottom-4 margin-left-double" *ngIf="showing.agrees">
+          <div class="profile-name" *ngFor="let profile of agrees">
+            {{fixtures.getProfileById(profile).short_text}}
+          </div>
+        </div>
+    </div>
+  </trellis-menu>
+</div>

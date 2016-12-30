@@ -1,14 +1,14 @@
 <div class="content-panel margin-double margin-left-double">
   <div class="flex wrap space-between margin-bottom-double margin-right">
     <div class="flex wrap nostretch">
-      <span class="profile-name pointer" *ngFor="let editor of comment.editors">
-        {{fixtures.getProfileById(editor).short_text}},&ensp;
+      <span class="profile-name pointer" *ngFor="let editor of comment.editors; let last = last;">
+        {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
       </span>
       <span class="conversation-information" *ngIf="comment.reply_parents.length > 2">&ensp;replied to&ensp;</span>
       <span class="profile-name pointer"
         *ngIf="comment.reply_parents.length > 2">
-        <span *ngFor="let editor of fixtures.getPostById(comment.reply_parents[comment.reply_parents.length - 2]).editors">
-          {{fixtures.getProfileById(editor).short_text}},&ensp;
+        <span *ngFor="let editor of fixtures.getPostById(comment.reply_parents[comment.reply_parents.length - 2]).editors; let last = last;">
+          {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
         </span>
       </span>
     </div>
@@ -58,7 +58,7 @@
   </div>
 
   <div class="flex end">
-    <post-footer [reactions]="comment.reactions"></post-footer>
+    <reaction-stack [reactions]="comment.reactions"></reaction-stack>
     <div class="trellis-button" [ngClass]="{'fg-gray-3': comment.$permission < 2}">
       <svg class="icon-2 vertical-align-middle">
         <use href="#svg-icon-florence-icons-02"></use>

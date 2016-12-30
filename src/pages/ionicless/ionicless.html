@@ -15,8 +15,8 @@
         </div>
         <div class="flex margin wrap nostretch shrinkable">
           <div class="conversation-information">published by:</div>
-          <div class="profile-name" *ngFor="let editor of item.editors">
-            {{fixtures.getProfileById(editor).short_text}},&ensp;
+          <div class="profile-name" *ngFor="let editor of item.editors; let last = last;">
+            {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
             <use href="#svg-icon-fontawesome-webfont-16"></use>
           </svg>
         </div>
-        <post-footer [reactions]="item.reactions" class="flex nostretch"></post-footer>
+        <reaction-stack [reactions]="item.reactions" class="flex nostretch"></reaction-stack>
         <div class="trellis-button flex nostretch" [ngClass]="{'fg-gray-3': item.$permission < 2}">
           <svg class="icon-2">
             <use href="#svg-icon-florence-icons-02"></use>

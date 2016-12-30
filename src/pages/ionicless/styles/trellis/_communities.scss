@@ -1,0 +1,13 @@
+.community-name {
+  color: $blue-2;
+  font-weight: $font-medium;
+}
+
+.community-selector {
+  color: $light-text;
+  display: flex;
+  flex: 0 0 auto;
+  background-color: $blue-1;
+  padding: 0.125em 0.5em;
+  border-radius: 0.125em;
+}

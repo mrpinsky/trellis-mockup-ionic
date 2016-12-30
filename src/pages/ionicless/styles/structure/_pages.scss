@@ -1,0 +1,38 @@
+.main-content {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+}
+
+.page-content {
+  display: flex;
+  flex: 1 1 auto;
+  overflow-y: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.drawer-container {
+  display: flex;
+  flex: 1 1 auto;
+  overflow-y: hidden;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.inner-content {
+  overflow-y: auto;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: $gray-2;
+}

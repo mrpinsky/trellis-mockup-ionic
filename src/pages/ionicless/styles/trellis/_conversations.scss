@@ -1,0 +1,65 @@
+.conversation-title {
+  color: $blue-2;
+  font-family: $font-family-base;
+  font-weight: $font-medium;
+  font-size: $font-size-large;
+  line-height: 1.5;
+  padding: 0;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  word-wrap: normal;
+}
+
+.conversation-information {
+  font-weight: $font-regular;
+  font-style: italic;
+  color: $gray-6;
+  display: flex;
+  margin-right: 0.5em;
+  flex: 0 0 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.conversation-body {
+  @extend %panelbase;
+  background-color: $gray-1;
+  border-radius: 0.25em;
+  flex: 1 1 auto;
+  padding: 0.25em 2em;
+  display: block;
+  a {
+    color: $blue-2;
+  }
+  ul {
+    list-style: disc inside none;
+    list-style-position: inherit;
+    -webkit-margin-start: 3em;
+  }
+  ol {
+    list-style: decimal inside none;
+  }
+}
+
+.comment-panel {
+  @extend %panelbase;
+  align-items: flex-start;
+  flex-direction: row;
+  flex: 1 0 auto;
+  margin: 0 0 1em 1em;
+  > img {
+    margin-right: 1em;
+  }
+}
+
+.conversation-summary-panel {
+  @extend %panelbase;
+  margin: 0.5em 1em;
+}
+
+trellis-bind-html img {
+  display: none;
+}

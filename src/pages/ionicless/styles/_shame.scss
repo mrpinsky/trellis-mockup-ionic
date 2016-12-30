@@ -1,0 +1,64 @@
+.v-align-middle {
+  vertical-align: middle;
+}
+
+.search-trellis-input {
+  border-radius: 0.25em;
+  padding: 0 0.4em;
+  margin: 0;
+  line-height: 2.25;
+}
+
+
+.notification {
+  trellis-image {
+    img {
+      max-height: 25vh;
+      width: auto;
+      max-width: 100%;
+      }
+  }
+}
+
+
+.text-align-center {
+  text-align: center;
+}
+
+
+.border-radius {
+  border-radius: 0.15em;
+}
+
+
+ul[dnd-list] {
+    position: relative;
+}
+
+ul[dnd-list] > li {
+  position: relative;
+  cursor: move;
+}
+
+/**
+ * FROM DEMO
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * FROM DEMO
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+ul[dnd-list] .dndPlaceholder {
+    display: block;
+    background-color: #ddd;
+    min-height: 25px;
+}

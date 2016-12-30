@@ -1,0 +1,57 @@
+.ql-container {
+  min-height: 9.375em;
+  max-height: 100vh;
+  overflow-y: auto;
+  // overflow-x: auto;
+}
+
+.ql-editor {
+  box-sizing: border-box;
+  min-height: 6.25em;
+  outline: 0;
+  tab-size: 4;
+  white-space: pre-wrap;
+  display: block;
+  a {
+    color: $blue-2;
+    cursor: pointer;
+  }
+}
+
+.ql-tooltip {
+  input {
+    color: $gray-7;
+  }
+}
+
+.quill-toolbar-button {
+  width: $image-size-3;
+  height: $image-size-3;
+}
+
+.ql-active {
+  color: $blue-1;
+}
+
+.editor-popup-fixed {
+  z-index: $z-index-menu;
+  position: fixed;
+  max-height: 15em;
+  overflow-y: auto;
+  box-shadow: 0.375em 0.375em 0.9375em $gray-5;
+}
+
+.editor-popup {
+  z-index: $z-index-menu;
+  position: absolute;
+  max-height: 15em;
+  overflow-y: auto;
+  min-width: 17.8em;
+  box-shadow: 1px 3px 5px $drop-shadow-alpha;
+}
+
+
+
+text-editor {
+  position: relative;
+}

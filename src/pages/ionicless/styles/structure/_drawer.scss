@@ -1,0 +1,75 @@
+  // trellisSidenav adapted from mdSidenav from the
+  // angular-material project
+
+$drawer-default-width: 20vw;
+$drawer-min-space: 5vw;
+
+trellis-drawer {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.trellis-drawer {
+
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  &.drawer-open {
+    position: fixed;
+    z-index: $z-index-drawer;
+
+    &.drawer-bottom {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      overflow: visible;
+    }
+
+    &.drawer-left {
+      left: 0;
+      top: 0;
+      min-width: $drawer-default-width;
+      max-width: $drawer-default-width * 2;
+      bottom: 0;
+    }
+
+    &.drawer-right {
+      right: 0;
+      top: 0;
+      min-width: $drawer-default-width;
+      max-width: $drawer-default-width * 2;
+      bottom: 0;
+      padding-top: 2.5em;
+    }
+    @media (max-width: $narrow-breakpoint) {
+      &.drawer-right,
+      &.drawer-left {
+        max-width: 75vw;
+      }
+    }
+  }
+  > :first-child {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0.5em;
+  }
+  &.drawer-pinned {
+    min-width: $drawer-default-width;
+    max-width: $drawer-default-width * 1.2;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .drawer-item {
+    @extend %menu-list-item;
+    @extend %menu-list-item-selectable;
+    width: 100%;
+  }
+}

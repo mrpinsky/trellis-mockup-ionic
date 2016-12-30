@@ -11,7 +11,7 @@ import { FixtureData } from '../../providers/fixture-data';
 export class ConversationViewPage {
   thread: Array<{
     id: number,
-    authorId: number,
+    editors: number[],
     title: string,
     content: string,
     reactions: {
@@ -19,13 +19,14 @@ export class ConversationViewPage {
       dislikes: number[],
       agrees: number[],
     },
-    reply_parents: number[];
+    reply_parents: number[],
+    $permission: number,
   }>;
 
   constructor(public navCtrl: NavController, private fixtures: FixtureData) {
-    const rootPage = fixtures.documents[0];
+    const rootPost = fixtures.documents[0];
     this.thread = fixtures.documents.filter((doc) => {
-      return rootPage.reply_parents.reduce((result, id) => {
+      return rootPost.reply_parents.reduce((result, id) => {
         return result && doc.reply_parents.indexOf(id) >= 0;
       }, true);
     });

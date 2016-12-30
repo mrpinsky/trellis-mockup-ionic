@@ -1,0 +1,33 @@
+.trellis-backdrop {
+  z-index: $z-index-backdrop;
+  background-color: $backdrop-color;
+  opacity: .4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  &.trellis-menu-backdrop {
+    position: fixed;
+    z-index: $z-index-menu - 1;
+    opacity: 0.25;
+  }
+  &.trellis-select-backdrop {
+    z-index: $z-index-modal + 1;
+    transition-duration: 0;
+  }
+  &.trellis-modal-backdrop {
+    z-index: $z-index-modal - 1;
+  }
+  &.trellis-bottom-sheet-backdrop {
+    z-index: $z-index-bottom-sheet - 1;
+  }
+  &.trellis-drawer-backdrop {
+    z-index: $z-index-drawer - 1;
+  }
+
+  &.trellis-click-catcher {
+    position: absolute;
+  }
+}

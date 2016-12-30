@@ -1,0 +1,44 @@
+.topline-container {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.topline-item {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0.5em 0;
+  margin-right: 1.5em;
+  border-radius: 0.25em;
+}
+
+.topline {
+  padding: 0 0.5em;
+  @extend .child-horizontal-margin;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $gray-7;
+  color: $light-text;
+  fill: $white;
+  // flex-wrap: wrap;
+
+  &.secondary {
+    background-color: $blue-1;
+  }
+
+  &.alt-secondary {
+    border-top: solid 0.125em $blue-1;
+    border-bottom: solid 0.125em $blue-1;
+    background-color: $white;
+    color: $primary-text;
+  }
+
+}

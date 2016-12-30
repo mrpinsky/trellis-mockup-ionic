@@ -1,0 +1,23 @@
+.trellis-dropdown-menu .user-menu {
+  background-color: $gray-8;
+  color: $gray-1;
+  padding: 1em;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+}
+.search-trellis-input {
+  background-color: $gray-8;
+  color: $gray-1;
+  margin-right: 1em;
+  font-style: $font-italic;
+}
+.primary-topline {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (max-width: $narrow-breakpoint) {
+  trellis-hamburger .inline .trellis-toggle:not(.active) {
+    display: none;
+  }
+}

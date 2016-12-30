@@ -1,0 +1,69 @@
+<div class="content-panel margin-double margin-left-double">
+  <div class="flex wrap space-between margin-bottom-double margin-right">
+    <div class="flex wrap nostretch">
+      <span class="profile-name pointer" *ngFor="let editor of comment.editors; let last = last;">
+        {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
+      </span>
+      <span class="conversation-information" *ngIf="comment.reply_parents.length > 2">&ensp;replied to&ensp;</span>
+      <span class="profile-name pointer"
+        *ngIf="comment.reply_parents.length > 2">
+        <span *ngFor="let editor of fixtures.getPostById(comment.reply_parents[comment.reply_parents.length - 2]).editors; let last = last;">
+          {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
+        </span>
+      </span>
+    </div>
+
+    <!-- <div class="flex nostretch" *ngIf="comment.reply_parents.length > 2">
+      <div class="fg-raspberry" ui-sref="app.conversations.detail({itemId: comment.reply_parents[0]})" scroll-to="comment-{{comment.reply_parents[comment.reply_parents.length - 2].$id}}">
+        [view]
+      </div>
+    </div> -->
+
+    <!-- <div class="flex nostretch">
+      <a class="italic warm-gray" ui-sref="app.conversations.detail({itemId: comment.reply_parents[0], scrollTo: comment.$id})">{{comment.created_at | amDateFormat:'MMM D, Y'}}</a>
+
+      <div class="trellis-button margin-left padding" ui-sref="app.conversations.detail.edit({itemId: comment.$id})" *ngIf="comment.$in('editors', Globals.profile)">
+        edit
+        <svg class="icon-2">
+          <use xlink:href="#svg-icon-pencil-1"></use>
+        </svg>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="comment-panel">
+    <div class="grow-panel">
+      <div *ngIf="comment.content !== undefined" class="conversation-body">
+        <div>{{comment.content}}</div>
+      </div>
+      <!-- <div class="grow-panel" *ngIf="(comment.blobs | removeErrors).length > 0">
+        <div class="subsection-header">ATTACHMENTS</div>
+        <div *ngFor="let item of comment.blobs | removeErrors track by item.$id">
+          <blob-display blob="item"></blob-display>
+        </div>
+      </div> -->
+
+      <!-- <div class="grow-panel" *ngIf="(comment.collection | removeErrors).length > 0">
+        <div class="subsection-header">TRELLIS LINKS</div>
+        <div class="margin-left" ui-sref="{{item.uiSref}}" *ngFor="let item of comment.collection | removeErrors track by item.$id">
+          <svg class="icon-2">
+            <use xlink:href="#svg-icon-link"></use>
+          </svg>
+          <span>
+            {{item.title}}
+          </span>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="flex end">
+    <reaction-stack [reactions]="comment.reactions"></reaction-stack>
+    <div class="trellis-button" [ngClass]="{'fg-gray-3': comment.$permission < 2}">
+      <svg class="icon-2 vertical-align-middle">
+        <use href="#svg-icon-florence-icons-02"></use>
+      </svg>
+      <!-- <span class="tally">{{comment.replies.length}}</span> -->
+    </div>
+  </div>
+</div>

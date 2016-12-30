@@ -5,7 +5,11 @@ import { FixtureData } from '../providers/fixture-data';
 import { MyApp } from './app.component';
 import { TodoPage } from '../pages/todo/todo';
 import { ConversationViewPage } from '../pages/conversation/conversation';
+import { IoniclessConvoPage } from '../pages/ionicless/ionicless';
 import { PostFooterComponent } from '../components/post-footer/post-footer';
+import { FloCommentComponent } from '../components/flo-comment/flo-comment';
+import { ReactionStackComponent } from '../components/reaction-stack/reaction-stack';
+import { TrellisMenuComponent } from '../components/trellis-menu/trellis-menu';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -13,7 +17,11 @@ import { TabsPage } from '../pages/tabs/tabs';
     MyApp,
     TodoPage,
     ConversationViewPage,
+    IoniclessConvoPage,
     PostFooterComponent,
+    FloCommentComponent,
+    ReactionStackComponent,
+    TrellisMenuComponent,
     TabsPage
   ],
   imports: [
@@ -24,6 +32,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     MyApp,
     TodoPage,
     ConversationViewPage,
+    IoniclessConvoPage,
     TabsPage
   ],
   providers: [

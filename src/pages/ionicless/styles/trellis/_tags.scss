@@ -1,0 +1,17 @@
+.tag-name {
+  color: $raspberry;
+}
+
+.tag-selector {
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  color: $raspberry;
+  font-weight: $font-medium;
+  &.active,
+  &:hover {
+    color: $white;
+    background-color: $raspberry;
+  }
+}

@@ -1,0 +1,40 @@
+$possiborders: top bottom left right;
+
+@for $i from 1 to 10 {
+  @each $b in $possiborders {
+    .border-#{$b}-#{$i} {
+      border-#{$b}: 0.125em solid nth($grays, $i);
+    }
+    .border-#{$b}-#{$i}-dotted {
+      border-#{$b}: 0.125em dotted nth($grays, $i);
+    }
+  }
+  .border-#{$i} {
+    border: 0.125em solid nth($grays, $i);
+  }
+}
+
+@for $i from 1 through 9 {
+  @each $b in $possiborders {
+    .border-#{$b}-#{nth($othercolornames, $i)} {
+      border-#{$b}: 0.2em solid nth($othercolors, $i);
+    }
+  }
+  .border-#{nth($othercolornames, $i)} {
+    border: 0.2em solid nth($othercolors, $i);
+  }
+}
+
+.border-thicker {
+  border-width: 0.25em;
+}
+
+@each $b in $possiborders {
+  .border-#{$b}-thicker {
+    border-#{$b}-width: 0.25em;
+  }
+}
+
+.boxshadow {
+  box-shadow: 0.0625em 0.0625em 0.15em $gray-5;
+}

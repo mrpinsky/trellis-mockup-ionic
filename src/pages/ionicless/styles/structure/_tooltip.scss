@@ -1,0 +1,8 @@
+.tl-tooltip {
+  z-index: $z-index-tooltip;
+  position: fixed;
+  background-color: $gray-9;
+  color: $light-text;
+  padding: 0.5em;
+  border-radius: 0.25em;
+}

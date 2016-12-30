@@ -1,0 +1,103 @@
+body {
+  font-family: $font-family-base;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.text-display {
+  text-align: left;
+}
+
+.snippet {
+  max-width: 100%;
+  width: 100%;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: inline-block;
+  //overflow: hidden;
+  border-radius: 0.125em;
+  margin: 0.3125em 0;
+  padding: 0.25em 1em;
+  color: $primary-text;
+  text-align: left;
+}
+
+.section-header {
+  padding: 0 0 0 0.3125em;
+  color: $primary-text;
+  font-weight: $font-medium;
+  border-bottom: 0.17em solid $gray-5;
+  line-height: 1.875em;
+  margin: 0 0 0.625em;
+  //text-transform: uppercase;
+}
+
+.subsection-header {
+  @extend .section-header;
+  border-bottom: 0.1em solid $gray-5;
+}
+
+.tally {
+  color: $green;
+  font-weight: $font-medium;
+}
+
+.font-small {
+  font-size: $font-size-small;
+}
+
+.font-xs {
+  font-size: $font-size-xs;
+}
+
+.font-large {
+  font-size: $font-size-large;
+}
+
+.font-italic {
+  font-style: $font-italic;
+}
+
+.font-uppercase {
+  text-transform: uppercase;
+}
+
+$fontweights: $font-light $font-regular $font-medium $font-bold;
+$fontweightnames: light regular medium bold;
+@for $i from 1 through 4 {
+  .font-weight-#{nth($fontweightnames, $i)} {
+    font-weight: nth($fontweights, $i);
+  }
+}
+
+strong {
+  font-weight: $font-bold;
+}
+
+em {
+  font-style: $font-italic;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: $font-bold;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.really-wrap {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+
+b {
+  font-weight: $font-medium;
+}
+
+
+.text-shadow {
+  text-shadow: 0.0625em 0.0625em 0.0625em $gray-7;
+}

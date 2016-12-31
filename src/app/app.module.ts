@@ -10,6 +10,7 @@ import { PostFooterComponent } from '../components/post-footer/post-footer';
 import { FloCommentComponent } from '../components/flo-comment/flo-comment';
 import { ReactionStackComponent } from '../components/reaction-stack/reaction-stack';
 import { TrellisMenuComponent } from '../components/trellis-menu/trellis-menu';
+import { DetailToplineComponent } from '../components/detail-topline/detail-topline';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     FloCommentComponent,
     ReactionStackComponent,
     TrellisMenuComponent,
+    DetailToplineComponent,
     TabsPage
   ],
   imports: [

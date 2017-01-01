@@ -1,28 +1,59 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Conversations</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>
+      Conversations
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      <ion-card-title>{{rootPost.title}}</ion-card-title>
-      <p>
-        {{rootPost.content}}
-      </p>
-      <post-footer [reactions]="rootPost.reactions"></post-footer>
-    </ion-card-content>
-  </ion-card>
-  <ion-item-divider>Replies</ion-item-divider>
-  <ion-card *ngFor="let reply of replies">
-    <ion-card-header>
-      {{fixtures.getProfileById(reply.editors[0]).short_text}}
-    </ion-card-header>
-    <ion-card-content>
-      <p>
-        {{reply.content}}
-      </p>
-    </ion-card-content>
-  </ion-card>
+  <div class="content-panel child-vertical-padding">
+    <div class="conversation-information">
+      <div class="participant-avatar margin-right" *ngIf="rootPost.editors.length < 2">
+        <img class="profile-image-6 border-8" [src]="fixtures.getProfileById(rootPost.editors[0]).image_url">
+      </div>
+      <div class="flex margin wrap nostretch shrinkable">
+        <div class="conversation-information">published by:</div>
+        <div class="profile-name" *ngFor="let editor of rootPost.editors; let last = last;">
+          {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel conversation-body">
+      {{rootPost.content}}
+    </div>
+
+    <div class="flex row end margin-bottom">
+      <div class="trellis-button" *ngIf="rootPost.reply_parents.length === 1">
+        <svg class="icon-2 fg-raspberry">
+          <use href="#svg-icon-fontawesome-webfont-16"></use>
+        </svg>
+      </div>
+      <reaction-stack [reactions]="rootPost.reactions" class="flex nostretch"></reaction-stack>
+      <div class="trellis-button flex nostretch" [ngClass]="{'fg-gray-3': rootPost.$permission < 2}">
+        <svg class="icon-2">
+          <use href="#svg-icon-florence-icons-02"></use>
+        </svg>
+        <div class="tally">{{replies.length}}</div>
+      </div>
+        <!-- <svg class="icon-3 fg-raspberry" *ngIf="viewOnly">
+          <use href="#svg-icon-restricted"></use>
+        </svg> -->
+    </div>
+  </div>
+
+  <div class="list-panel border-top-blue-2">
+    <ion-card [ngClass]="''" *ngFor="let reply of replies">
+      <ion-card-header>
+        {{fixtures.getProfileById(reply.editors[0]).short_text}}
+      </ion-card-header>
+      <ion-card-content>
+        <div class="conversation-body">
+          {{reply.content}}
+        </div>
+        <reaction-stack [reactions]="reply.reactions"></reaction-stack>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

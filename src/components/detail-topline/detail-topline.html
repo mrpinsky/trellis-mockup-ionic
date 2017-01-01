@@ -1,24 +1,25 @@
-<div class="topline-item" type="button" id="convo-menu-toggle">
-  <svg role="button" class="icon-4 fill-white">
-    <use filter="url(#drop-shadow)" href="#svg-icon-chat"></use>
-  </svg>
-</div>
-<div class="topline-item font-large font-weight-medium text-shadow">
-  <span>{{item.title}}</span>
-</div>
-
-<div class="topline secondary stretch end">
-  <reaction-stack [reactions]="item.reactions" class="topline-item fg-gray-7"></reaction-stack>
-
-  <div class="rounded padding-left-half padding-right-half bg-white border-gray-5 sub" *ngIf="item.$permission < 2" (click)="reply()">
-    <svg class="icon-3 fill-raspberry">
-      <use href="#svg-icon-restricted"></use>
+<div class="topline secondary">
+  <div class="topline-item" type="button" id="convo-menu-toggle">
+    <svg role="button" class="icon-4 fill-white">
+      <use filter="url(#drop-shadow)" href="#svg-icon-chat"></use>
     </svg>
   </div>
+  <div class="topline-item font-large font-weight-medium text-shadow">
+    <span>{{item.title}}</span>
+  </div>
+  <div class="flex stretch end">
+    <reaction-stack [reactions]="item.reactions" class="topline-item fg-gray-7"></reaction-stack>
 
-  <div class="topline-item" type="button">
-    <svg role="button" class="icon-4 fill-white">
-      <use href="#svg-icon-menu" filter="url(#drop-shadow)"></use>
-    </svg>
+    <div class="rounded padding-left-half padding-right-half bg-white border-gray-5 sub" *ngIf="item.$permission < 2" (click)="reply()">
+      <svg class="icon-3 fill-raspberry">
+        <use href="#svg-icon-restricted"></use>
+      </svg>
+    </div>
+
+    <div class="topline-item" type="button">
+      <svg role="button" class="icon-4 fill-white">
+        <use href="#svg-icon-menu" filter="url(#drop-shadow)"></use>
+      </svg>
+    </div>
   </div>
 </div>

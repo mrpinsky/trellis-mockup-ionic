@@ -1,0 +1,66 @@
+<div class="topline child-horizontal-margin-double">
+  <div class="topline-item primary-topline" type="button">
+    <svg class="icon-6">
+      <use href="/assets/kstf-icon-logo-darkbkgd.svg#Layer_1"></use>
+    </svg>
+  </div>
+  <div class="topline-item primary-topline">
+    <div class="flex">
+      <svg class="icon-3 fill-white margin-right">
+        <use href="#svg-icon-grid-lines-streamline"></use>
+      </svg>
+    </div>
+    <span>
+      CONVERSATIONS
+    </span>
+  </div>
+  <div class="flex"><!--SPACER--></div>
+  <div class="menu-button topline-item">
+    <div type="button" class="trellis-button bg-blue-1 padding">
+      <svg class="icon-3">
+        <use href="#svg-icon-plus-squared" filter="url(#drop-shadow)"></use>
+      </svg>
+    </div>
+    <!-- <trellis-menu open="view.createMenu" close-on-outside-click="true">
+      <div class="trellis-dropdown-menu menu-list bg-gray-9 light-gray" ng-include="'templates/createMenu.template.html'"></div>
+    </trellis-menu> -->
+  </div>
+  <div class="menu-button topline-item">
+    <div type="button">
+      <svg class="icon-4 v-align-middle">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" href="#icon-megaphone" filter="url(#drop-shadow)"></use>
+      </svg>
+    </div>
+    <!-- <trellis-menu open="view.announcementMenu" close-on-outside-click="true">
+      <div class="grow-panel bg-white padding-double scrollable child-vertical-margin wide-menu">
+        <div class="section-header">ANNOUNCEMENTS</div>
+        <a
+        ng-repeat="announcement in trellis.allAnnouncements | limitTo:10 track by announcement.$id"
+        class="conversation-title flex"
+        ng-class="{'border-bottom-4': !$last}"
+        ui-sref="app.conversations.detail({itemId: announcement.$id})">
+          {{announcement.short_text}}
+        </a>
+      </div>
+    </trellis-menu> -->
+  </div>
+  <div class="menu-button topline-item dropdown-toggle margin-right-double">
+    <!-- <notification-menu></notification-menu> -->
+    <div type="button">
+      <svg class="icon-4 v-align-middle">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" href="#icon-notification" filter="url(#drop-shadow)"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="menu-button topline-item">
+    <div type="button">
+      <img class="profile-image-6 border-8" [src]="fixtures.getProfileById(2).image_url">
+    </div>
+    <!-- <trellis-menu open="view.profileMenu" close-on-outside-click="true">
+      <div class="trellis-dropdown-menu user-menu child-vertical-margin" ng-include="'templates/userMenu.template.html'"></div>
+    </trellis-menu> -->
+  </div>
+</div>
+<div>
+  <detail-topline [item]="fixtures.getPostById(1)"></detail-topline>
+</div>

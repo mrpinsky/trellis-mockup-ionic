@@ -1,6 +1,6 @@
 <div class="drawer-container">
   <div class="fixed-content topline-container">
-    <detail-topline display="flex" [item]=item></detail-topline>
+    <topline></topline>
   </div>
   <!-- <trellis-drawer trellis-id="conversationDetails" drawer-class="bg-white">
     <div class="child-vertical-margin" ng-include="'app/conversations/conversations-detail-details.template.html'"></div>
@@ -10,7 +10,7 @@
     <div ng-include="'app/conversations/conversations-detail-actions.template.html'"></div>
   </trellis-drawer> -->
 
-  <div class="inner-content scroll-content inset-content-panel bg-white" style="margin-top: 56px; margin-bottom: 56px;">
+  <div class="inner-content scroll-content inset-content-panel bg-white" style="margin-top: 86px; margin-bottom: 56px;">
     <div class="content-panel child-vertical-padding">
       <div class="conversation-information">
         <div class="participant-avatar margin-right" *ngIf="item.editors.length < 2">

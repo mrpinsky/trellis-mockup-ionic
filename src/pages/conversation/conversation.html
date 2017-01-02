@@ -14,8 +14,8 @@
       </div>
       <div class="flex margin wrap nostretch shrinkable">
         <div class="conversation-information">published by:</div>
-        <div class="profile-name" *ngFor="let editor of rootPost.editors; let last = last;">
-          {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
+        <div class="profile-name" *ngFor="let editor of rootPost.editors; let $last = last;">
+          {{fixtures.getProfileById(editor).short_text}}{{$last ? '' : ','}}&ensp;
         </div>
       </div>
     </div>
@@ -45,14 +45,22 @@
 
   <div class="list-panel border-top-blue-2">
     <ion-card [ngClass]="''" *ngFor="let reply of replies">
-      <ion-card-header>
+      <ion-card-header [ngClass]="'profile-name pointer'">
         {{fixtures.getProfileById(reply.editors[0]).short_text}}
       </ion-card-header>
       <ion-card-content>
         <div class="conversation-body">
           {{reply.content}}
         </div>
-        <reaction-stack [reactions]="reply.reactions"></reaction-stack>
+        <div class="flex end">
+          <reaction-stack [reactions]="reply.reactions"></reaction-stack>
+          <div class="trellis-button" [ngClass]="{'fg-gray-3': reply.$permission < 2}">
+            <svg class="icon-2 vertical-align-middle">
+              <use href="#svg-icon-florence-icons-02"></use>
+            </svg>
+            <span class="tally">{{fixtures.countRepliesTo(reply.id)}}</span>
+          </div>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>

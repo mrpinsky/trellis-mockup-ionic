@@ -168,4 +168,10 @@ export class FixtureData {
     return this.$$profiles.filter((profile) => profile.id === id)[0];
   }
 
+  countRepliesTo(id) {
+    return this.$$documents.filter((doc) => {
+      return doc.reply_parents.filter(parentId => parentId === id).length > 0;
+    }).length - 1;
+  }
+
 }

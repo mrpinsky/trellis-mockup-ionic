@@ -1,8 +1,12 @@
 <div text-right>
-  <span margin-left text-capitalize (click)="react()">
-    Reactions
+  <div
+  type="button"
+  class="trellis-button no-wrap bg-white"
+  [ngClass]="{'trellis-dropdown-menu-button--open': showingReactions}"
+  (click)="react()">
+    <svg class="icon-3 fill-gray-7"><use href="#svg-icon-florence-icons-04-1"></use></svg>
     <ion-badge item-right>
       {{reactionCount}}
     </ion-badge>
-  </span>
+  </div>
 </div>

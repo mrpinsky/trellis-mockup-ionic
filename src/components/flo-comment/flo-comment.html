@@ -1,8 +1,8 @@
 <div class="content-panel margin-double margin-left-double">
   <div class="flex wrap space-between margin-bottom-double margin-right">
     <div class="flex wrap nostretch">
-      <span class="profile-name pointer" *ngFor="let editor of comment.editors; let last = last;">
-        {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
+      <span class="profile-name pointer" *ngFor="let editor of comment.editors; let $last = last;">
+        {{fixtures.getProfileById(editor).short_text}}{{$last ? '' : ','}}&ensp;
       </span>
       <span class="conversation-information" *ngIf="comment.reply_parents.length > 2">&ensp;replied to&ensp;</span>
       <span class="profile-name pointer"

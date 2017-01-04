@@ -8,7 +8,7 @@
     <span>{{item.title}}</span>
   </div>
   <div class="flex stretch end">
-    <post-footer [reactions]="item.reactions" class="topline-item fg-gray-7"></post-footer>
+    <reaction-stack [reactions]="item.reactions" class="topline-item fg-gray-7"></reaction-stack>
 
     <div class="rounded padding-left-half padding-right-half bg-white border-gray-5 sub" *ngIf="item.$permission < 2" (click)="reply()">
       <svg class="icon-3 fill-raspberry">

@@ -60,7 +60,7 @@ export class PostFooterComponent {
         {
           text: 'Okay',
           handler: (data) => {
-            this.updateReactions(data);
+            this.updateReactions(data, alert);
           },
         }
       ]
@@ -68,13 +68,12 @@ export class PostFooterComponent {
     alert.present();
   }
 
-  updateReactions(data) {
+  updateReactions(data, alert) {
     ["likes", "dislikes", "agrees"].forEach((rxn) => {
       this.reactions[rxn] = this.reactions[rxn].filter((id) => id !== 2);
       if (data.findIndex(r => r === rxn) >= 0) { // if the box was checked...
         this.reactions[rxn].push(2); // add me
       }
     });
-
   }
 }

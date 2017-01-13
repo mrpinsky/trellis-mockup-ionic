@@ -29,7 +29,7 @@
         </svg>
       </div>
       <post-footer [reactions]="rootPost.reactions" class="flex nostretch"></post-footer>
-      <div class="trellis-button flex nostretch" [ngClass]="{'fg-gray-3': rootPost.$permission < 2}">
+      <div (tap)="openReplyEditor()" class="trellis-button flex nostretch" [ngClass]="{'fg-gray-3': rootPost.$permission < 2}">
         <svg class="icon-2">
           <use href="#svg-icon-florence-icons-02"></use>
         </svg>
@@ -42,7 +42,7 @@
   </div>
 
   <div class="list-panel border-top-blue-2">
-    <ion-card [ngClass]="''" *ngFor="let reply of replies">
+    <ion-card *ngFor="let reply of replies">
       <ion-card-header [ngClass]="'flex wrap nostretch'">
         <span class="profile-name pointer" *ngFor="let editor of reply.editors; let $last = last;">
           {{fixtures.getProfileById(editor).short_text}}{{$last ? '' : ','}}&ensp;
@@ -56,12 +56,10 @@
         </span>
       </ion-card-header>
       <ion-card-content>
-        <div class="conversation-body">
-          {{reply.content}}
-        </div>
+        <div class="conversation-body" [innerHTML]="reply.content"></div>
         <div class="flex end">
           <post-footer [reactions]="reply.reactions"></post-footer>
-          <div class="trellis-button" [ngClass]="{'fg-gray-3': reply.$permission < 2}">
+          <div (tap)="openReplyEditor()" class="trellis-button" [ngClass]="{'fg-gray-3': reply.$permission < 2}">
             <svg class="icon-2 vertical-align-middle">
               <use href="#svg-icon-florence-icons-02"></use>
             </svg>
@@ -73,6 +71,5 @@
       </ion-card-content>
     </ion-card>
   </div>
-
-  <reply-editor [document]="reply"></reply-editor>
+  <reply-editor *ngIf="replying" (onPublished)="onPublished($event)"></reply-editor>
 </ion-content>

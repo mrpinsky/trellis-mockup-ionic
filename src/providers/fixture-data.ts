@@ -185,8 +185,11 @@ export class FixtureData {
     };
 
     this.nextDocumentId++;
-    this.$$documents.push(reply);
     return reply;
+  }
+
+  publishDocument(doc: TrellisDocument) {
+    this.$$documents.push(doc);
   }
 
 }

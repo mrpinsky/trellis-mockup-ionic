@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import { Component, Output, EventEmitter, ElementRef } from '@angular/core';
 
 import { FixtureData } from '../../providers/fixture-data';
 
@@ -15,10 +15,11 @@ import Quill from 'quill';
   templateUrl: 'reply-editor.html'
 })
 export class ReplyEditorComponent {
-  @Input() document: TrellisDocument;
+  @Output() onPublished: EventEmitter<TrellisDocument>;
   quill: Quill.Quill;
 
   constructor(private fixtures: FixtureData, private el: ElementRef) {
+    this.onPublished = new EventEmitter<TrellisDocument>();
     setTimeout(this.initializeQuill, 1000)
   }
 
@@ -35,7 +36,7 @@ export class ReplyEditorComponent {
         'link',
         'list',
         'bullet',
-        'header',
+        // 'header',
         'align',
       ],
       // modules: {
@@ -46,19 +47,11 @@ export class ReplyEditorComponent {
     });
   }
 
-  saveAndClose() {
-    this.saveReply();
-    console.log('Closing...');
-  }
-
-  saveReply() {
-    console.log('Saving...');
-  }
-
   publishReply() {
     // debugger;
-    this.document.content = this.el.nativeElement.children[0].children[1].children[1].children[0].innerHTML;
-    console.log('Publishing...');
-    console.log(this.document);
+    const html = this.el.nativeElement.children[0].children[1].children[1].children[0].innerHTML;
+    const reply = this.fixtures.createDocument(2, { content: html })
+    this.onPublished.emit(reply);
+    // this.quill.setText('');
   }
 }

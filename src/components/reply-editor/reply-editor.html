@@ -1,20 +1,7 @@
 <div class="content-panel">
-
   <div class="content-panel">
     <div class="flex wrap bg-gray-9">
-      <div class="flex wrap shrinkable">
-        <div class="flex nostretch">RESPONDING TO:</div>
-        <div *ngFor="let editor of document.reply_parents[document.reply_parents.length - 2].editors; let $last = last" class="profile-name flex nostretch">
-          {{fixtures.getProfileById(editor).short_text}}{{$last ? '' : ','}}&ensp;
-        </div>
-      </div>
       <div class="flex nostretch child-horizontal-margin pin-right">
-        <div class="trellis-button" (tap)="saveAndClose()">
-          <span>CLOSE</span>
-        </div>
-        <div label="save" class="trellis-button" (tap)="saveReply()">
-          <span>SAVE</span>
-        </div>
         <div class="trellis-button" (tap)="publishReply()">
           <span>PUBLISH</span>
         </div>

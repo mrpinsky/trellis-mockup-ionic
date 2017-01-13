@@ -12,3 +12,36 @@
   https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
 */
 declare module '*';
+
+interface TrellisReactions {
+  likes: number[],
+  dislikes: number[],
+  agrees: number[],
+}
+
+interface NewDocOpts {
+  title?: string,
+  content?: string,
+  inReplyTo?: TrellisDocument,
+  perm?: number,
+}
+
+interface TrellisDocument {
+  id: number,
+  editors: number[],
+  title: string,
+  content: string,
+  reactions: TrellisReactions,
+  reply_parents: number[],
+  $permission: number,
+}
+
+interface TrellisThread extends TrellisDocument {
+  replies: TrellisDocument[];
+}
+
+interface TrellisProfile {
+  id: number,
+  short_text: string,
+  image_url: string,
+}

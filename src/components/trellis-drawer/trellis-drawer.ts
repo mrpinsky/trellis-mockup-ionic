@@ -10,13 +10,4 @@ import { Component } from '@angular/core';
   selector: 'trellis-drawer',
   templateUrl: 'trellis-drawer.html'
 })
-export class TrellisDrawerComponent {
-
-  text: string;
-
-  constructor() {
-    console.log('Hello TrellisDrawer Component');
-    this.text = 'Hello World';
-  }
-
-}
+export class TrellisDrawerComponent {}

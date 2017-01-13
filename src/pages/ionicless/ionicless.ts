@@ -13,32 +13,7 @@ import { FixtureData } from '../../providers/fixture-data';
   templateUrl: 'ionicless.html'
 })
 export class IoniclessConvoPage {
-  item: {
-    id: number,
-    editors: number[],
-    title: string,
-    content: string,
-    reactions: {
-      likes: number[],
-      dislikes: number[],
-      agrees: number[],
-    },
-    reply_parents: number[],
-    $permission: number,
-    replies: Array<{
-      id: number,
-      editors: number[],
-      title: string,
-      content: string,
-      reactions: {
-        likes: number[],
-        dislikes: number[],
-        agrees: number[],
-      },
-      reply_parents: number[],
-      $permission: number,
-    }>,
-  };
+  item: TrellisThread;
 
   constructor(
     public navCtrl: NavController,

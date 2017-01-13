@@ -13,22 +13,8 @@ import { FixtureData } from '../../providers/fixture-data';
 })
 export class FloCommentComponent {
   @Input()
-  comment: {
-    id: number,
-    editors: number[],
-    title: string,
-    content: string,
-    reactions: {
-      likes: number[],
-      dislikes: number[],
-      agrees: number[],
-    },
-    reply_parents: number[],
-    $permission: number,
-  }
+  comment: TrellisDocument;
 
-  constructor(private fixtures: FixtureData) {
-    console.log('Hello FloComment Component');
-  }
+  constructor(private fixtures: FixtureData) {}
 
 }

@@ -9,19 +9,8 @@ import { FixtureData } from '../../providers/fixture-data';
   templateUrl: 'conversation.html'
 })
 export class ConversationViewPage {
-  thread: Array<{
-    id: number,
-    editors: number[],
-    title: string,
-    content: string,
-    reactions: {
-      likes: number[],
-      dislikes: number[],
-      agrees: number[],
-    },
-    reply_parents: number[],
-    $permission: number,
-  }>;
+  $reply: TrellisDocument;
+  thread: TrellisDocument[];
 
   constructor(public navCtrl: NavController, private fixtures: FixtureData) {
     const rootPost = fixtures.documents[0];
@@ -30,6 +19,7 @@ export class ConversationViewPage {
         return result && doc.reply_parents.indexOf(id) >= 0;
       }, true);
     });
+    this.$reply = fixtures.createDocument(2, { inReplyTo: rootPost })
   }
 
   get rootPost() {
@@ -40,4 +30,7 @@ export class ConversationViewPage {
     return this.thread.slice(1);
   }
 
+  get reply() {
+    return this.$reply;
+  }
 }

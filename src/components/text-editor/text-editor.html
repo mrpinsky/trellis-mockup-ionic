@@ -1,0 +1,69 @@
+<div>
+  <!-- <div id="editor-toolbar" class="flex child-horizontal-margin cross-stretch" ng-show="view.socket.active">
+    <div class="flex nostretch">
+      <button title="Bold" class="quill-toolbar-button ql-bold"></button>
+      <button title="Italic" class="quill-toolbar-button ql-italic"></button>
+      <button title="Underline" class="quill-toolbar-button ql-underline"></button>
+      <!-- <button title="Header-1" class="quill-toolbar-button ql-header" value="1"></button> ->
+    </div>
+
+    <div class="flex nostretch">
+      <button title="List" class="quill-toolbar-button ql-list" value="bullet"></button>
+      <button title="Bullet" class="quill-toolbar-button ql-list" value="ordered"></button>
+    </div>
+
+    <div class="flex nostretch">
+      <button title="Link" class="quill-toolbar-button ql-link"></button>
+    </div>
+    <!-- <div class="flex stretch" ng-click="view.emitHTML()">HTML</div> ->
+    <div class="flex nostretch pin-right" ng-if="view.options.image">
+      <div title="img" class="trellis-button" ng-click="view.imageTooltip.show()">
+        <svg role="button" class="icon-4">
+          <use xlink:href="#svg-icon-insert-image"></use>
+        </svg>
+      </div>
+    </div>
+  </div> -->
+  <div id="editor-container">
+  </div>
+  <!-- <div id="quill-hashtag-tooltip" ng-if="view.hashtagTooltip.showing" class="editor-popup bg-white border-3 padding" ng-style="view.hashtagTooltip.style">
+    <div ng-if="view.hashtagTooltip.list.length === 0" ng-click="view.insertItem(view.hashtagTooltip.value)" class="tag-selector bg-white margin flex active">
+      <span>{{view.hashtagTooltip.value}}</span>
+    </div>
+    <div ng-repeat="item in view.hashtagTooltip.list track by item.tag" ng-click="view.hashtagTooltip.insert(item)" ng-class="{'border-bottom-2': !$last, 'active': view.hashtagTooltip.offset == $index}" class="tag-selector bg-white margin flex">
+      <span>{{item.tag}}</span>
+    </div>
+  </div>
+  <div id="quill-atmention-tooltip" ng-if="view.atMentionTooltip.showing &amp;&amp; view.atMentionTooltip.list.length" class="editor-popup bg-white font-small border-lime child-vertical-padding" ng-style="view.atMentionTooltip.style">
+    <div ng-repeat="item in view.atMentionTooltip.list track by item.$id" ng-click="view.atMentionTooltip.insert(item)" ng-class="{'border-bottom-2': !$last, 'active': view.atMentionTooltip.offset == $index}" class="person-selector bg-white margin flex">
+      <img ng-src="{{item.image_url}}" class="profile-image-5 border-gray-8 margin-right">
+      <span>{{item.name}}</span>
+    </div>
+  </div>
+  <div ng-if="view.imageTooltip.showing" class="trellis-modal">
+    <div class="trellis-modal-dialog">
+      <div class="modal-header bg-gray-8">
+        <svg class="icon-3 margin-right">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-insert-image"></use>
+        </svg>
+        <span>INSERT IMAGE</span>
+        <svg class="icon-2 pin-right" role="button" ng-click="view.imageTooltip.cleanup()">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-cross-mark"></use>
+        </svg>
+      </div>
+      <div class="modal-content">
+        <image-select max-dim="500" selected-file="view.imageTooltip.selectedFile"></image-select>
+        <div ng-if="view.imageTooltip.uploading">UPLOADING</div>
+      </div>
+      <div class="modal-footer bg-gray-8 flex end child-horizontal-margin">
+        <div class="trellis-button" ng-active="view.imageTooltip.selectedFile" ng-click="view.imageTooltip.cleanup()">
+          CANCEL
+        </div>
+        <div class="trellis-button" ng-click="view.imageTooltip.imageSelected()">
+          CONFIRM
+        </div>
+      </div>
+    </div>
+    <div class="trellis-backdrop trellis-modal-backdrop" ng-click="view.imageTooltip.cleanup()"></div>
+  </div> -->
+</div>

@@ -11,9 +11,5 @@ import { FixtureData } from '../../providers/fixture-data';
   templateUrl: 'topline.html'
 })
 export class ToplineComponent {
-  s
-  constructor(private fixtures: FixtureData) {
-    console.log('Hello Topline Component');
-  }
-
+  constructor(private fixtures: FixtureData) {}
 }

@@ -10,20 +10,10 @@ import * as faker from 'faker';
 */
 @Injectable()
 export class FixtureData {
-  private $$profiles: Array<{ id: number, short_text: string, image_url: string }>;
-  private $$documents: Array<{
-    id: number,
-    editors: number[],
-    title: string,
-    content: string,
-    reactions: {
-      likes: number[],
-      dislikes: number[],
-      agrees: number[],
-    },
-    reply_parents: number[],
-    $permission: number,
-  }>;
+  private $$profiles: TrellisProfile[];
+  private $$documents: TrellisDocument[];
+  private nextDocumentId: number;
+  private nextProfileId: number;
 
   constructor() {
     this.$$profiles = [
@@ -150,6 +140,8 @@ export class FixtureData {
         $permission: 2,
       },
     ];
+    this.nextDocumentId = this.$$documents.length + 1;
+    this.nextProfileId = this.$$profiles.length + 1;
   }
 
   get profiles() {
@@ -172,6 +164,29 @@ export class FixtureData {
     return this.$$documents.filter((doc) => {
       return doc.reply_parents.filter(parentId => parentId === id).length > 0;
     }).length - 1;
+  }
+
+  createDocument(creatorId: number, opts: NewDocOpts) {
+    const reply_parents = opts.inReplyTo ? opts.inReplyTo.reply_parents || [] : [];
+    reply_parents.push(this.nextDocumentId);
+
+    const reply: TrellisDocument = {
+      id: this.nextDocumentId,
+      editors: [creatorId],
+      title: opts.title || '',
+      content: opts.content || '',
+      reactions: {
+        likes: [],
+        dislikes: [],
+        agrees: [],
+      },
+      reply_parents: reply_parents,
+      $permission: opts.perm || 2,
+    };
+
+    this.nextDocumentId++;
+    this.$$documents.push(reply);
+    return reply;
   }
 
 }

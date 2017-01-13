@@ -12,6 +12,8 @@ import { ReactionStackComponent } from '../components/reaction-stack/reaction-st
 import { TrellisMenuComponent } from '../components/trellis-menu/trellis-menu';
 import { ToplineComponent } from '../components/topline/topline';
 import { DetailToplineComponent } from '../components/detail-topline/detail-topline';
+import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
+import { TextEditorComponent } from '../components/text-editor/text-editor';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -26,6 +28,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     TrellisMenuComponent,
     ToplineComponent,
     DetailToplineComponent,
+    ReplyEditorComponent,
+    TextEditorComponent,
     TabsPage
   ],
   imports: [

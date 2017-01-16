@@ -50,7 +50,7 @@ export class ReplyEditorComponent {
   }
 
   publishReply() {
-    const html = this.el.nativeElement.children[0].children[1].children[1].children[0].innerHTML;
+    const html = this.el.nativeElement.children[0].children[1].children[0].children[0].innerHTML;
     const reply = this.fixtures.createDocument(2, { content: html })
     this.onPublished.emit(reply);
   }

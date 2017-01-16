@@ -71,5 +71,5 @@
       </ion-card-content>
     </ion-card>
   </div>
-  <reply-editor *ngIf="replying" (onPublished)="onPublished($event)"></reply-editor>
+  <reply-editor *ngIf="replying" (onPublished)="onPublished($event)" (onClosed)="closeReplyEditor()"></reply-editor>
 </ion-content>

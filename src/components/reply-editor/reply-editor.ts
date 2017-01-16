@@ -16,16 +16,18 @@ import Quill from 'quill';
 })
 export class ReplyEditorComponent {
   @Output() onPublished: EventEmitter<TrellisDocument>;
+  @Output() onClosed: EventEmitter<boolean>;
   quill: Quill.Quill;
 
   constructor(private fixtures: FixtureData, private el: ElementRef) {
     this.onPublished = new EventEmitter<TrellisDocument>();
+    this.onClosed = new EventEmitter<boolean>();
     setTimeout(this.initializeQuill, 1000)
   }
 
   initializeQuill() {
     this.quill = new Quill('#editor-container', {
-      theme: 'snow',
+      theme: 'bubble',
       formats: [
         'bold',
         'italic',
@@ -48,10 +50,12 @@ export class ReplyEditorComponent {
   }
 
   publishReply() {
-    // debugger;
     const html = this.el.nativeElement.children[0].children[1].children[1].children[0].innerHTML;
     const reply = this.fixtures.createDocument(2, { content: html })
     this.onPublished.emit(reply);
-    // this.quill.setText('');
+  }
+
+  closeEditor() {
+    this.onClosed.emit(true);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+
+import { TrellisDocument } from '../../models/index';
 import { FixtureData } from '../../providers/fixture-data';
 
 /*

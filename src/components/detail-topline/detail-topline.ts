@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { TrellisDocument } from '../../models/index';
+
 /*
   Generated class for the DetailTopline component.
 

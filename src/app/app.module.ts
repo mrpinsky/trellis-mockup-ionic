@@ -13,7 +13,6 @@ import { TrellisReactionModalPage } from '../pages/trellis-reaction-modal/trelli
 import { PostFooterComponent } from '../components/post-footer/post-footer';
 import { FloCommentComponent } from '../components/flo-comment/flo-comment';
 import { ReactionStackComponent } from '../components/reaction-stack/reaction-stack';
-import { TrellisMenuComponent } from '../components/trellis-menu/trellis-menu';
 import { ToplineComponent } from '../components/topline/topline';
 import { DetailToplineComponent } from '../components/detail-topline/detail-topline';
 import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
@@ -26,7 +25,6 @@ import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
     PostFooterComponent,
     FloCommentComponent,
     ReactionStackComponent,
-    TrellisMenuComponent,
     ToplineComponent,
     DetailToplineComponent,
     ReplyEditorComponent,

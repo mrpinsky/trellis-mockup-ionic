@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, ElementRef } from '@angular/core';
 
+import { TrellisDocument } from '../../models/TrellisDocument';
 import { FixtureData } from '../../providers/fixture-data';
 
 import Quill from 'quill';

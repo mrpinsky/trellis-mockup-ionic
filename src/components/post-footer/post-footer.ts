@@ -15,7 +15,11 @@ import { FixtureData } from '../../providers/fixture-data';
 })
 export class PostFooterComponent {
   @Input()
-  reactions: TrellisReactions;
+  reactions: {
+    likes: number[],
+    agrees: number[],
+    disagrees: number[],
+  } // TrellisReactions;
 
   testCheckboxResult: any;
 

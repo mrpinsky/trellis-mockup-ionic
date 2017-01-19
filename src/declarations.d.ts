@@ -15,6 +15,12 @@ import { TrellisDocument } from './models/index';
 */
 declare module '*';
 
+interface TrellisReactions {
+  likes: number[],
+  agrees: number[],
+  disagrees: number[],
+}
+
 interface NewDocOpts {
   title?: string,
   content?: string,

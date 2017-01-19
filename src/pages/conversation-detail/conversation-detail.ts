@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { FixtureData } from '../../providers/fixture-data';
+import { Profile, TrellisDocument } from '../../models/index';
 
 @Component({
   selector: 'conversation-view',

@@ -15,14 +15,14 @@ export class ReactionStackComponent {
   @Input()
   reactions: {
     likes: number[],
-    dislikes: number[],
     agrees: number[],
+    disagrees: number[],
   };
   showingReactions: boolean = false;
   showing: {
     likes: boolean,
-    dislikes: boolean,
     agrees: boolean,
+    disagrees: boolean,
   }
 
   constructor(private fixtures: FixtureData) {

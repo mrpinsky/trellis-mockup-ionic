@@ -1,0 +1,96 @@
+<div class="conversation-summary-panel">
+  <div class="profile-panel space-between">
+    <div class="shrink-panel row">
+      <!-- <img class="profile-image-7 border-8 margin-right" *ngFor="let editor of document.editors | slice track by editor.$id" ui-sref="{{editor.uiSref}}" *ngIf="(document.editors.length < 2) &amp;&amp; !MatchMedia.xs &amp;&amp; preview !== 'announcement'" ng-src="{{editor.image_url}}"> -->
+      <!-- <div class="icon-6 margin-right-double" *ngIf="(preview === 'announcement') &amp;&amp; !MatchMedia.xs">
+        <img src="/assets/trellis-announcement.svg">
+      </div> -->
+      <div class="shrink-panel margin-right-double">
+        <div class="conversation-title">
+          <svg class="icon-2 fill-blue-1 margin-right" *ngIf="document.type === 'comment' ">
+            <use href="#svg-icon-florence-icons-02"></use>
+          </svg>
+          <div>{{document.computedTitle}}</div>
+        </div>
+        <div class="shrink-panel row wrap">
+          <div class="conversation-information">published by:</div>
+          <div class="profile-name" *ngFor="let editor of document.editors">
+            {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ',&ensp;'}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="content-panel margin-left-double pin-right" *ngIf="!MatchMedia.xs">
+      <div class="flex nostretch">
+        <div class="font-italic font-small font-weight-regular fg-gray-5 margin-right">
+          Last update:
+        </div>
+        <div class="font-italic font-small font-weight-regular fg-gray-5" am-time-ago="document.updated_at"></div>
+      </div>
+      <div class="flex nostretch">
+        <div class="font-italic font-small font-weight-regular fg-gray-5 margin-right">
+          Last reply:
+        </div>
+        <div class="font-italic font-small font-weight-regular fg-gray-5" am-time-ago="document.oldestReply()"></div>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="flex" *ngIf="preview !== 'announcement'">
+    <div class="shrink-panel wrap shrinkable">
+      <div class="flex child-horizontal-margin wrap">
+        <div class="padding-right border-right-3" *ngIf="!(document.$permission > 1)">
+          <svg class="icon-3 fill-raspberry">
+            <use href="#svg-icon-restricted"></use>
+          </svg>
+        </div>
+        <svg class="icon-3">
+          <use href="#svg-icon-torsos-all"></use>
+        </svg>
+        <!-- <div *ngIf="!MatchMedia.xs">SHARED WITH:</div> -->
+        <div class="community-name shrinkable" *ngFor="let c of document.communities">
+          {{fixtures.getCommunityById(c).short_text}}{{last ? '' : ','}}
+        </div>
+      </div>
+      <div class="flex child-horizontal-margin wrap" *ngIf="preview === 'full' &amp;&amp; document.tags.length">
+        <svg class="icon-3">
+          <use href="#svg-icon-florence-icons-05"></use>
+        </svg>
+        <!-- <div *ngIf="!MatchMedia.xs">TAGS:</div> -->
+        <div class="tag-name" *ngFor="let tag of document.tags track by tag">
+          {{tag}}{{last ? '' : ','}}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flex pin-right nostretch child-horizontal-margin margin-bottom">
+      <div class="flex child-horizontal-margin padding-left padding-right border-left-4 border-right-4">
+        <!-- <div *ngIf="!MatchMedia.xs" class="flex nostretch">REPLIES</div> -->
+        <svg class="icon-2">
+          <use href="#svg-icon-florence-icons-02"></use>
+        </svg>
+        <div class="tally">{{document.replies.length}} </div>
+      </div>
+      <div class="flex child-horizontal-margin padding-left padding-right border-left-4 border-right-4">
+        <!-- <div *ngIf="!MatchMedia.xs" class="flex nostretch">REACTIONS</div> -->
+        <svg class="icon-3">
+          <use href="#svg-icon-florence-icons-04-1"></use>
+        </svg>
+        <div class="tally">{{document.totalReactions}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="snippet conversation-body" *ngIf="snippet">
+    <div trellis-bind-html="snippet"></div>
+  </div>
+  <!-- <div class="snippet conversation-body" *ngIf="!MatchMedia.xs &amp;&amp; !snippet" hm-pressup="fullText = !fullText">
+    <div *ngIf="!fullText">
+      <span rich-text="document.snippet()"></span>
+      <!-- <span> ... </span> ->
+    </div>
+    <div *ngIf="fullText" rich-text="document.rich_text"></div>
+  </div> -->
+</div>

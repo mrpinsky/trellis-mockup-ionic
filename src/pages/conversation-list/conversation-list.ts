@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DisplayLimit } from '../../providers/display-limit';
 
 /*
   Generated class for the ConversationList page.
@@ -11,12 +12,23 @@ import { NavController, NavParams } from 'ionic-angular';
   selector: 'page-conversation-list',
   templateUrl: 'conversation-list.html'
 })
-export class ConversationListPage {
+export class ConversationListPage implements OnInit {
+  $conversations: TrellisThread[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private dl: DisplayLimit
+  ) {
+    dl.displayLimit(this, { name: 'conversations', increment: 5 });
+  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConversationListPage');
+  ngOnInit() {
+    // load conversations
+  }
+
+  get conversations() {
+    return this.$conversations;
   }
 
 }

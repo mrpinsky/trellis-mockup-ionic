@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
@@ -10,19 +10,11 @@ import { FixtureData } from '../../providers/fixture-data';
 })
 export class ConversationDetailPage {
   replying: boolean;
+  @Input() $rootPost: TrellisDocument;
   thread: TrellisDocument[];
 
   constructor(public navCtrl: NavController, private fixtures: FixtureData) {
-    this.loadThread();
-  }
-
-  loadThread() {
-    const rootPost = this.fixtures.documents[0];
-    this.thread = this.fixtures.documents.filter((doc) => {
-      return rootPost.reply_parents.reduce((result, id) => {
-        return result && doc.reply_parents.indexOf(id) >= 0;
-      }, true);
-    });
+    this.thread = fixtures.getThread(this.$rootPost);
   }
 
   get rootPost() {

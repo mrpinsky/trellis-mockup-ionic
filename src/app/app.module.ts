@@ -3,9 +3,11 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { FixtureData } from '../providers/fixture-data';
+import { DisplayLimit } from '../providers/display-limit';
 
 import { MyApp } from './app.component';
-import { ConversationViewPage } from '../pages/conversation/conversation';
+import { ConversationDetailPage } from '../pages/conversation-detail/conversation-detail';
+import { ConversationListPage } from '../pages/conversation-list/conversation-list';
 import { TrellisReactionModalPage } from '../pages/trellis-reaction-modal/trellis-reaction-modal';
 
 import { PostFooterComponent } from '../components/post-footer/post-footer';
@@ -19,7 +21,8 @@ import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
 @NgModule({
   declarations: [
     MyApp,
-    ConversationViewPage,
+    ConversationDetailPage,
+    ConversationListPage,
     PostFooterComponent,
     FloCommentComponent,
     ReactionStackComponent,
@@ -35,11 +38,12 @@ import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ConversationViewPage,
+    ConversationDetailPage,
     TrellisReactionModalPage,
   ],
   providers: [
     FixtureData,
+    DisplayLimit,
     Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]

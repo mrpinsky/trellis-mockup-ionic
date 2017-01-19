@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <topline></topline>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="content-panel child-vertical-padding">
+    <div class="conversation-information">
+      <div class="participant-avatar margin-right" *ngIf="rootPost.editors.length < 2">
+        <img class="profile-image-6 border-8" [src]="fixtures.getProfileById(rootPost.editors[0]).image_url">
+      </div>
+      <div class="flex margin wrap nostretch shrinkable">
+        <div class="conversation-information">published by:</div>
+        <div class="profile-name" *ngFor="let editor of rootPost.editors; let $last = last;">
+          {{fixtures.getProfileById(editor).short_text}}{{$last ? '' : ','}}&ensp;
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel conversation-body">
+      {{rootPost.content}}
+    </div>
+
+    <div class="flex row end margin-bottom">
+      <div class="trellis-button" *ngIf="rootPost.reply_parents.length === 1">
+        <svg class="icon-2 fg-raspberry">
+          <use href="#svg-icon-fontawesome-webfont-16"></use>
+        </svg>
+      </div>
+      <post-footer [reactions]="rootPost.reactions" class="flex nostretch"></post-footer>
+      <div (tap)="openReplyEditor()" class="trellis-button flex nostretch" [ngClass]="{'fg-gray-3': rootPost.$permission < 2}">
+        <svg class="icon-2">
+          <use href="#svg-icon-florence-icons-02"></use>
+        </svg>
+        <ion-badge item-right>{{replies.length}}</ion-badge>
+      </div>
+        <!-- <svg class="icon-3 fg-raspberry" *ngIf="viewOnly">
+          <use href="#svg-icon-restricted"></use>
+        </svg> -->
+    </div>
+  </div>
+
+  <div class="list-panel border-top-blue-2">
+    <ion-card *ngFor="let reply of replies">
+      <ion-card-header [ngClass]="'flex wrap nostretch'">
+        <span class="profile-name pointer" *ngFor="let editor of reply.editors; let $last = last;">
+          {{fixtures.getProfileById(editor).short_text}}{{$last ? '' : ','}}&ensp;
+        </span>
+        <span class="conversation-information" *ngIf="reply.reply_parents.length > 2">&ensp;replied to&ensp;</span>
+        <span class="profile-name pointer"
+          *ngIf="reply.reply_parents.length > 2">
+          <span *ngFor="let editor of fixtures.getPostById(reply.reply_parents[reply.reply_parents.length - 2]).editors; let last = last;">
+            {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
+          </span>
+        </span>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="conversation-body" [innerHTML]="reply.content"></div>
+        <div class="flex end">
+          <post-footer [reactions]="reply.reactions"></post-footer>
+          <div (tap)="openReplyEditor()" class="trellis-button" [ngClass]="{'fg-gray-3': reply.$permission < 2}">
+            <svg class="icon-2 vertical-align-middle">
+              <use href="#svg-icon-florence-icons-02"></use>
+            </svg>
+            <ion-badge item-right>
+              {{fixtures.countRepliesTo(reply.id)}}
+            </ion-badge>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <reply-editor *ngIf="replying" (onPublished)="onPublished($event)" (onClosed)="closeReplyEditor()"></reply-editor>
+</ion-content>

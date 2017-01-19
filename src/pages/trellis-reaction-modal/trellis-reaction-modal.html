@@ -1,0 +1,77 @@
+<!--
+  Generated template for the TrellisReactionModal page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reactions</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="bg-white fg-gray-7 border-raspberry">
+    <div (click)="$toggle('likes', fixtures.getProfileById(2))">
+      <svg class="icon-3 fill-gray-7">
+        <use href="#svg-icon-thumbs-up"></use>
+      </svg>
+      <span class="tally">{{likes.length}} </span>
+      <span *ngIf="!$in('likes', fixtures.getProfileById(2))">
+        LIKE
+      </span>
+      <span *ngIf="$in('likes', fixtures.getProfileById(2))">
+        (YOU LIKED)
+      </span>
+    </div>
+      <div class="border-bottom-4 margin-left-double">
+        <div class="profile-name" *ngFor="let profile of likes">
+          {{fixtures.getProfileById(profile).short_text}}
+        </div>
+      </div>
+
+    <div (click)="$toggle('dislikes', fixtures.getProfileById(2))">
+      <svg class="icon-3 fill-gray-7">
+        <use href="#svg-icon-thumbs-up"></use>
+      </svg>
+      <span class="tally">{{dislikes.length}} </span>
+      <span *ngIf="!$in('dislikes', fixtures.getProfileById(2))">
+        DISLIKE
+      </span>
+      <span *ngIf="$in('dislikes', fixtures.getProfileById(2))">
+        (YOU DISLIKED)
+      </span>
+    </div>
+      <div class="border-bottom-4 margin-left-double">
+        <div class="profile-name" *ngFor="let profile of dislikes">
+          {{fixtures.getProfileById(profile).short_text}}
+        </div>
+      </div>
+
+    <div (click)="$toggle('agrees', fixtures.getProfileById(2))">
+      <svg class="icon-3 fill-gray-7">
+        <use href="#svg-icon-check-circle"></use>
+      </svg>
+      <span class="tally">{{agrees.length}}</span>
+      <span *ngIf="!$in('agrees', fixtures.getProfileById(2))">
+        AGREE
+      </span>
+      <span *ngIf="$in('agrees', fixtures.getProfileById(2))">
+        (YOU AGREED)
+      </span>
+    </div>
+      <div class="border-bottom-4 margin-left-double">
+        <div class="profile-name" *ngFor="let profile of agrees">
+          {{fixtures.getProfileById(profile).short_text}}
+        </div>
+      </div>
+  </div>
+</ion-content>
+
+<!-- <ion-footer>
+  <button ion-button outline (tap)="dismiss()">Cancel</button>
+  <button ion-button strong (tap)="dismiss()">Okay</button>
+</ion-footer> -->

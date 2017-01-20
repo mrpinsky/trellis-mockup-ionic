@@ -13,7 +13,11 @@ import { FixtureData } from '../../providers/fixture-data';
   templateUrl: 'trellis-reaction-modal.html'
 })
 export class TrellisReactionModalPage {
-  reactions: TrellisReactions;
+  reactions: {
+    likes: number[],
+    agrees: number[],
+    disagrees: number[],
+  };
 
   constructor(
     public viewCtrl: ViewController,
@@ -28,8 +32,8 @@ export class TrellisReactionModalPage {
     return this.reactions.likes;
   }
 
-  get dislikes() {
-    return this.reactions.dislikes;
+  get disagrees() {
+    return this.reactions.disagrees;
   }
 
   get agrees() {

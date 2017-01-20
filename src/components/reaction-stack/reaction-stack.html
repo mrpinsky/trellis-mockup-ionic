@@ -51,14 +51,14 @@
           <use href="#svg-icon-cancel-circle"></use>
         </svg>
         <span class="tally">{{reactions.disagrees.length}}</span>
-        <span *ngIf="!$in('disagree', fixtures.getProfileById(2))">
+        <span *ngIf="!$in('disagrees', fixtures.getProfileById(2))">
           DISAGREE
         </span>
-        <span *ngIf="$in('disagree', fixtures.getProfileById(2))">
+        <span *ngIf="$in('disagrees', fixtures.getProfileById(2))">
           (YOU DISAGREED)
         </span>
       </div>
-        <div class="border-bottom-4 margin-left-double" *ngIf="view.showing.disagree">
+        <div class="border-bottom-4 margin-left-double" *ngIf="showing.disagrees">
           <div class="profile-name" *ngFor="let profile of reactions.disagrees">
             {{fixtures.getProfileById(profile).name}}
           </div>

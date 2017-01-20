@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DisplayLimit } from '../../providers/display-limit';
 
+import { TrellisDocument } from '../../models/index';
+
 /*
   Generated class for the ConversationList page.
 
@@ -13,7 +15,7 @@ import { DisplayLimit } from '../../providers/display-limit';
   templateUrl: 'conversation-list.html'
 })
 export class ConversationListPage implements OnInit {
-  $conversations: TrellisThread[];
+  $conversations: TrellisDocument[][];
 
   constructor(
     public navCtrl: NavController,

@@ -3,11 +3,11 @@ import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { FixtureData } from '../../providers/fixture-data';
-import { Profile, TrellisDocument } from '../../models/index';
+import { TrellisDocument } from '../../models/index';
 
 @Component({
-  selector: 'conversation-view',
-  templateUrl: 'conversation.html'
+  selector: 'conversation-detail',
+  templateUrl: 'conversation-detail.html'
 })
 export class ConversationDetailPage {
   replying: boolean;
@@ -15,6 +15,7 @@ export class ConversationDetailPage {
   thread: TrellisDocument[];
 
   constructor(public navCtrl: NavController, private fixtures: FixtureData) {
+    this.$rootPost = fixtures.documents[0];
     this.thread = fixtures.getThread(this.$rootPost);
   }
 

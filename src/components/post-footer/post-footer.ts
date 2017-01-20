@@ -40,7 +40,7 @@ export class PostFooterComponent {
   react() {
     let alert = this.alertCtrl.create({
       title: 'Reactions',
-      inputs: this.reactionTypes.map((rxn) => {
+      inputs: this.reactionTypes.map(rxn => {
         let reacters: string;
         if (this.reactions[rxn].length > 0) {
           reacters = this.reactions[rxn].map((id) => {
@@ -69,7 +69,7 @@ export class PostFooterComponent {
   }
 
   updateReactions(data, alert) {
-    ["likes", "dislikes", "agrees"].forEach((rxn) => {
+    this.reactionTypes.forEach(rxn => {
       this.reactions[rxn] = this.reactions[rxn].filter((id) => id !== 2);
       if (data.findIndex(r => r === rxn) >= 0) { // if the box was checked...
         this.reactions[rxn].push(2); // add me

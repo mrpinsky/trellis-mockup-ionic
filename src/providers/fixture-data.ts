@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import * as faker from 'faker';
+import faker from 'faker';
 
 import { Profile, Community, TrellisDocument } from '../models/index';
 

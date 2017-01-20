@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ConversationViewPage } from '../conversation/conversation';
-import { TodoPage } from '../todo/todo';
-import { IoniclessConvoPage } from '../ionicless/ionicless';
+import { ConversationDetailPage } from '../conversation-detail/conversation-detail';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -10,9 +8,7 @@ import { IoniclessConvoPage } from '../ionicless/ionicless';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  tab1Root: any = ConversationViewPage;
-  tab2Root: any = TodoPage;
-  tab3Root: any = IoniclessConvoPage;
+  tab1Root: any = ConversationDetailPage;
 
   constructor() {
 

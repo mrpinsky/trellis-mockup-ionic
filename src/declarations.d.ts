@@ -1,4 +1,4 @@
-import { TrellisDocument } from './models/index';
+// import { TrellisDocument } from './models/index';
 
 /*
   Declaration files are how the Typescript compiler knows about the type information(or shape) of an object.
@@ -21,9 +21,9 @@ interface TrellisReactions {
   disagrees: number[],
 }
 
-interface NewDocOpts {
-  title?: string,
-  content?: string,
-  inReplyTo?: TrellisDocument,
-  perm?: number,
-}
+// interface NewDocOpts {
+//   title?: string,
+//   content?: string,
+//   inReplyTo?: TrellisDocument,
+//   perm?: number,
+// }

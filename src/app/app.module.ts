@@ -7,7 +7,7 @@ import { DisplayLimit } from '../providers/display-limit';
 
 import { MyApp } from './app.component';
 import { ConversationDetailPage } from '../pages/conversation-detail/conversation-detail';
-import { ConversationListPage } from '../pages/conversation-list/conversation-list';
+// import { ConversationListPage } from '../pages/conversation-list/conversation-list';
 import { TrellisReactionModalPage } from '../pages/trellis-reaction-modal/trellis-reaction-modal';
 
 import { PostFooterComponent } from '../components/post-footer/post-footer';
@@ -16,12 +16,13 @@ import { ReactionStackComponent } from '../components/reaction-stack/reaction-st
 import { ToplineComponent } from '../components/topline/topline';
 import { DetailToplineComponent } from '../components/detail-topline/detail-topline';
 import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
+import { TrellisMenuComponent } from '../components/trellis-menu/trellis-menu';
 
 @NgModule({
   declarations: [
     MyApp,
     ConversationDetailPage,
-    ConversationListPage,
+    // ConversationListPage,
     PostFooterComponent,
     FloCommentComponent,
     ReactionStackComponent,
@@ -29,6 +30,7 @@ import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
     DetailToplineComponent,
     ReplyEditorComponent,
     TrellisReactionModalPage,
+    TrellisMenuComponent,
   ],
   imports: [
     IonicModule.forRoot(MyApp)

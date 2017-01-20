@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { ConversationViewPage } from '../pages/conversation/conversation';
+import { ConversationDetailPage } from '../pages/conversation-detail/conversation-detail';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = ConversationViewPage;
+  rootPage = ConversationDetailPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

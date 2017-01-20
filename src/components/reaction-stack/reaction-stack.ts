@@ -29,7 +29,7 @@ export class ReactionStackComponent {
     console.log('Hello ReactionStack Component');
     this.showing = {
       likes: true,
-      dislikes: true,
+      disagrees: true,
       agrees: true,
     };
   }
@@ -39,7 +39,7 @@ export class ReactionStackComponent {
   }
 
   get dislikes() {
-    return this.reactions.dislikes;
+    return this.reactions.disagrees;
   }
 
   get agrees() {

@@ -50,7 +50,7 @@
         <span class="conversation-information" *ngIf="reply.reply_parents.length > 2">&ensp;replied to&ensp;</span>
         <span class="profile-name pointer"
           *ngIf="reply.reply_parents.length > 2">
-          <span *ngFor="let editor of fixtures.getPostById(reply.reply_parents[reply.reply_parents.length - 2]).editors; let last = last;">
+          <span *ngFor="let editor of fixtures.getDocumentById(reply.reply_parents[reply.reply_parents.length - 2]).editors; let last = last;">
             {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ','}}&ensp;
           </span>
         </span>

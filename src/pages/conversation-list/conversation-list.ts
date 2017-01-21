@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
 import { DisplayLimit } from '../../providers/display-limit';
+import { FixtureData } from '../../providers/fixture-data';
 
 import { TrellisDocument } from '../../models/index';
 
@@ -15,11 +17,12 @@ import { TrellisDocument } from '../../models/index';
   templateUrl: 'conversation-list.html'
 })
 export class ConversationListPage implements OnInit {
-  $conversations: TrellisDocument[][];
+  $conversations: TrellisDoc[];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private fixtures: FixtureData,
     private dl: DisplayLimit
   ) {
     dl.displayLimit(this, { name: 'conversations', increment: 5 });
@@ -27,6 +30,7 @@ export class ConversationListPage implements OnInit {
 
   ngOnInit() {
     // load conversations
+    this.$conversations = this.fixtures.conversations;
   }
 
   get conversations() {

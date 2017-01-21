@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { ConversationDetailPage } from '../pages/conversation-detail/conversation-detail';
+// import { ConversationListPage } from '../pages/conversation-list/conversation-list';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { ConversationDetailPage } from '../pages/conversation-detail/conversatio
 })
 export class MyApp {
   rootPage = ConversationDetailPage;
+  // rootPage = ConversationListPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

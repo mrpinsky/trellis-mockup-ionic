@@ -39,6 +39,7 @@ import { TrellisMenuComponent } from '../components/trellis-menu/trellis-menu';
   entryComponents: [
     MyApp,
     ConversationDetailPage,
+    // ConversationListPage,
     TrellisReactionModalPage,
   ],
   providers: [

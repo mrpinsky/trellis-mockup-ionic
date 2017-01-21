@@ -1,6 +1,4 @@
-import { FixtureData } from '../providers/fixture-data';
-
-export class Profile {
+export class Profile implements TrellisProfile {
   id: number;
   short_text: string;
   image_url: string;

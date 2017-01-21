@@ -1,21 +1,25 @@
 import Quill from 'quill';
 
-export class Community {
+export class Community implements TrellisCommunity {
+  id: number;
   short_text: string;
   long_text: string;
-  rich_text: Quill.DeltaStatic;
-  image_url: string;
-  created_at: Date;
-  updated_at: Date;
-  extended: any;
-  official: boolean;
-  moderators: number[];
+  moderators: TrellisProfile[];
   tags: string[];
-  members: number[];
+  members: TrellisProfile[];
   conversations: number[];
-  followers: number[];
-  viewingCommunities: number[];
-  viewers: number[];
+
+  constructor(id: number, name: string, creator: TrellisProfile, opts: NewCommunityOpts) {
+    opts = opts || {};
+
+    this.id = id;
+    this.short_text = name;
+    this.long_text = opts.long_text || '';
+    this.moderators = [creator];
+    this.tags = opts.tags || [];
+    this.members = opts.members || [];
+    this.conversations = opts.conversations || [];
+  }
 
   get name() {
     return this.short_text;

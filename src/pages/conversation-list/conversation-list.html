@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <div class="inset-list-panel list-panel">
-    <conversation-summary [document]="conversation" *ngFor="let conversation of conversations | slice:0:limit.conversations track by conversation.$id"></conversation-summary>
+    <conversation-summary [conversation]="conversation" *ngFor="let conversation of conversations | slice:0:limit.conversations track by conversation.$id"></conversation-summary>
     <div ng-if="!conversations" class="font-weight-medium">
       .... loading content ....
     </div>

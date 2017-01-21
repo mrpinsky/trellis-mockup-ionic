@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /*
   Generated class for the ConversationSummary component.
@@ -11,12 +11,10 @@ import { Component } from '@angular/core';
   templateUrl: 'conversation-summary.html'
 })
 export class ConversationSummaryComponent {
-
-  text: string;
+  @Input() conversation: TrellisDoc[];
 
   constructor() {
     console.log('Hello ConversationSummary Component');
-    this.text = 'Hello World';
   }
 
 }

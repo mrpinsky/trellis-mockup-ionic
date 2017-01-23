@@ -13,7 +13,7 @@ export class Profile implements TrellisProfile {
     return this.short_text;
   }
 
-  set name(v) {
-    this.short_text = v;
+  set name(newName: string) {
+    this.short_text = newName;
   }
 }

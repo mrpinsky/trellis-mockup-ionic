@@ -11,20 +11,18 @@ import { TrellisDocument } from '../../models/index';
 })
 export class ConversationDetailPage {
   replying: boolean;
-  @Input() $rootPost: TrellisDocument;
-  thread: TrellisDocument[];
+  @Input() $rootPost: TrellisDoc;
 
   constructor(public navCtrl: NavController, private fixtures: FixtureData) {
     this.$rootPost = fixtures.documents[0];
-    this.thread = fixtures.getThread(this.$rootPost);
   }
 
   get rootPost() {
-    return this.thread[0];
+    return this.$rootPost;
   }
 
   get replies() {
-    return this.thread.slice(1);
+    return this.$rootPost.replies;
   }
 
   openReplyEditor() {
@@ -37,7 +35,7 @@ export class ConversationDetailPage {
 
   onPublished(reply: TrellisDocument) {
     this.fixtures.publishDocument(reply);
-    this.thread.push(reply);
+    this.$rootPost.replies.push(reply);
     this.replying = false;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { DisplayLimit } from '../../providers/display-limit';
@@ -16,7 +16,7 @@ import { TrellisDocument } from '../../models/index';
   selector: 'page-conversation-list',
   templateUrl: 'conversation-list.html'
 })
-export class ConversationListPage implements OnInit {
+export class ConversationListPage {
   $conversations: TrellisDoc[];
 
   constructor(
@@ -26,10 +26,6 @@ export class ConversationListPage implements OnInit {
     private dl: DisplayLimit
   ) {
     dl.displayLimit(this, { name: 'conversations', increment: 5 });
-  }
-
-  ngOnInit() {
-    // load conversations
     this.$conversations = this.fixtures.conversations;
   }
 

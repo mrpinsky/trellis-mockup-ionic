@@ -13,7 +13,7 @@ import { Profile, Community, TrellisDocument } from '../models/index';
 @Injectable()
 export class TrellisFaker {
   randArray() {
-    return Array.from({length: faker.random.number(3)});
+    return Array.from({length: faker.random.number({min: 1, max: 3})});
   }
 
   fakeTags(): string[] {
@@ -31,7 +31,7 @@ export class TrellisFaker {
   fakeCommunity(id: number, existingProfiles: TrellisProfile[]): TrellisCommunity {
     return new Community(
       id,
-      faker.company.catchPhrase(),
+      faker.commerce.department(),
       faker.random.arrayElement(existingProfiles),
       {
         long_text: faker.company.bsBuzz(),
@@ -47,7 +47,7 @@ export class TrellisFaker {
       {
         title: faker.lorem.words(),
         content: faker.lorem.paragraph(),
-        inReplyTo: faker.random.arrayElement([undefined, undefined, undefined].concat(documents)),
+        inReplyTo: faker.random.arrayElement([undefined, undefined, undefined, undefined, undefined, undefined].concat(documents)),
         communities: this.randArray().map(a => {
           return faker.random.arrayElement(communities);
         }),

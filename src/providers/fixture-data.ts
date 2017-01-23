@@ -1,7 +1,8 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 import { TrellisFaker } from './trellis-faker';
+import faker from 'faker';
 
 import { Profile, Community, TrellisDocument } from '../models/index';
 
@@ -12,35 +13,33 @@ import { Profile, Community, TrellisDocument } from '../models/index';
   for more info on providers and Angular 2 DI.
 */
 const NUM_PROFILES = 5;
-const NUM_COMMUNITIES = 3;
-const NUM_DOCUMENTS = 12;
+const NUM_COMMUNITIES = 8;
+const NUM_DOCUMENTS = 30;
 
 @Injectable()
-export class FixtureData implements OnInit {
-  private $$profiles: TrellisProfile[];
-  private $$documents: TrellisDoc[];
-  private $$communities: TrellisCommunity[];
+export class FixtureData {
+  private $$profiles: TrellisProfile[] = [];
+  private $$documents: TrellisDoc[] = [];
+  private $$communities: TrellisCommunity[] = [];
   private nextDocumentId: number;
   private nextProfileId: number;
   private nextCommunityId: number;
 
-  constructor(private faker: TrellisFaker) {
+  constructor(private trellisFaker: TrellisFaker) {
     this.nextDocumentId = 0;
     this.nextProfileId = 0;
     this.nextCommunityId = 0;
 
-    this.$$profiles = [];
     while (this.$$profiles.length < NUM_PROFILES) {
       this.$$profiles.push(
-        faker.fakeProfile(this.nextProfileId)
+        trellisFaker.fakeProfile(this.nextProfileId)
       );
       this.nextProfileId = this.nextProfileId + 1;
     }
 
-    this.$$communities = [];
     while(this.$$communities.length < NUM_COMMUNITIES) {
       this.$$communities.push(
-        faker.fakeCommunity(
+        trellisFaker.fakeCommunity(
           this.nextCommunityId,
           this.$$profiles
         )
@@ -48,28 +47,41 @@ export class FixtureData implements OnInit {
       this.nextCommunityId = this.nextCommunityId + 1;
     }
 
-    this.$$documents = [];
+    this.$$profiles.forEach(profile => {
+      for(let i = 0; i < faker.random.number(4); i++) {
+        const community = faker.random.arrayElement(this.$$communities);
+        if (community.members.indexOf(profile) < 0) {
+          community.members.push(profile);
+        }
+      }
+    });
+
     while (this.$$documents.length < NUM_DOCUMENTS) {
       this.$$documents.push(
-        faker.fakeDocument(
+        trellisFaker.fakeDocument(
           this.nextDocumentId,
           this.$$profiles,
           this.$$communities,
           this.$$documents
         )
       );
-      this.nextDocumentId = this.nextProfileId + 1;
+      this.nextDocumentId = this.nextDocumentId + 1;
     }
-  }
 
-  ngOnInit() {
     this.$$documents.forEach(doc => {
       doc.setReplies(this.repliesTo(doc));
     });
+
+    this.conversations.forEach(convo => {
+      convo.communities.forEach(community => {
+        community.addConversation(convo);
+      });
+    })
   }
 
   repliesTo(root: TrellisDoc): TrellisDoc[] {
-    return this.$$documents.filter(doc => {
+    return this.$$documents.filter(doc => doc.reply_parents.length > root.reply_parents.length)
+    .filter(doc => {
       return root.reply_parents.map(id => doc.reply_parents.indexOf(id) >= 0)
       .reduce((acc, curr) => {
         return acc && curr;
@@ -85,16 +97,24 @@ export class FixtureData implements OnInit {
     return this.$$documents;
   }
 
+  get conversations(): TrellisDoc[] {
+    return this.$$documents.filter(doc => doc.reply_parents.length === 1);
+  }
+
+  get communities(): TrellisCommunity[] {
+    return this.$$communities;
+  }
+
   getDocumentById(id) {
-    return this.$$documents.filter(doc => doc.id === id)[0];
+    return this.$$documents[id];
   }
 
   getProfileById(id) {
-    return this.$$profiles.filter(profile => profile.id === id)[0];
+    return this.$$profiles[id];
   }
 
-  get conversations(): TrellisDoc[] {
-    return this.$$documents.filter(doc => doc.reply_parents.length === 1);
+  getCommunityById(id) {
+    return this.$$communities[id];
   }
 
   countRepliesTo(id) {

@@ -14,5 +14,6 @@ import { TrellisDocument } from '../../models/index';
 })
 export class DetailToplineComponent {
   @Input()
-  item: TrellisDocument;
+  item: TrellisDoc;
+
 }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { DisplayLimit } from '../../providers/display-limit';
+import { FixtureData } from '../../providers/fixture-data';
+
 /*
   Generated class for the CommunityList page.
 
@@ -12,11 +15,14 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'community-list.html'
 })
 export class CommunityListPage {
+  communities: TrellisCommunity[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CommunityListPage');
+  constructor(
+    private dl: DisplayLimit,
+    private fixtures: FixtureData
+  ) {
+    dl.displayLimit(this, { name: 'communities', increment: 5 });
+    this.communities = this.fixtures.communities;
   }
 
 }

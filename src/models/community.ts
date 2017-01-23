@@ -1,5 +1,3 @@
-import Quill from 'quill';
-
 export class Community implements TrellisCommunity {
   id: number;
   short_text: string;
@@ -17,7 +15,7 @@ export class Community implements TrellisCommunity {
     this.long_text = opts.long_text || '';
     this.moderators = [creator];
     this.tags = opts.tags || [];
-    this.members = opts.members || [];
+    this.members = opts.members || [creator];
     this.conversations = opts.conversations || [];
   }
 
@@ -35,5 +33,9 @@ export class Community implements TrellisCommunity {
 
   set description(v) {
     this.long_text = v;
+  }
+
+  addConversation(convo) {
+    this.conversations.push(convo);
   }
 }

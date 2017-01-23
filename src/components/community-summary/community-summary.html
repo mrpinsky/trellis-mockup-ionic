@@ -1,0 +1,64 @@
+<div class="content-panel margin">
+  <div class="flex nostretch margin-bottom">
+    <div class="flex" class="seventy">
+      <img src="/assets/kstf-icon-logo.svg" class="icon-4">
+      <a class="community-name font-large font-medium">
+        {{community.name}}
+      </a>
+    </div>
+    <div class="flex space-between thirty">
+      <!-- <div class="flex space-between" [ngClass]="{twenty: !MatchMedia.xs, forty: MatchMedia.xs}"> -->
+      <div class="flex fifty">
+        <svg class="icon-3 margin-right fg-gray-5">
+          <use href="#svg-icon-users"></use>
+        </svg>
+        <a class="tally">
+          {{community.members.length}}
+        </a>
+      </div>
+      <div type="button" class="flex fifty" (tap)="toggleRecent()">
+        <svg class="icon-3 margin-right mirror-flip fg-gray-5">
+          <use href="#svg-icon-chat"></use>
+        </svg>
+        <span class="fg-raspberry">
+          {{community.conversations.length}}
+        </span>
+        <svg class="icon-3" *ngIf="!showRecent">
+          <use href="#svg-icon-fontawesome-webfont-33"></use>
+        </svg>
+        <svg class="icon-3" *ngIf="showRecent">
+          <use href="#svg-icon-down-open"></use>
+        </svg>
+      </div>
+    </div>
+    <!-- <div class="flex end twenty" *ngIf="!MatchMedia.xs">
+      <div (tap)="joinCommunity()" class="trellis-button bg-lime text-shadow" *ngIf="!community.$in('members', Globals.profile)">
+        JOIN COMMUNITY!
+      </div>
+      <div ui-sref="{{community.uiSref}}" class="trellis-button bg-blue-1 text-shadow" *ngIf="community.$in('members', Globals.profile)">
+        VISIT COMMUNITY
+      </div>
+    </div> -->
+
+  </div>
+
+  <!-- <div class="well" *ngIf="(snippet || community.description).length > 20 &amp;&amp; !showRecent &amp;&amp; !MatchMedia.xs">
+    <div trellis-bind-html="snippet" *ngIf="snippet"></div>
+    <div rich-text="community.rich_text" class="snippet text-display" *ngIf="!snippet"></div>
+  </div> -->
+
+
+  <div *ngIf="showRecent" class="content-panel margin-double border-gray-4">
+
+    <div class="panelheader-dark">
+      <span>SHOWING: Recent Conversations shared with {{community.name}}</span>
+      <div type="button" (tap)="toggleRecent()" class="pin-right font-small">HIDE</div>
+    </div>
+
+    <div class="bg-white margin list-panel">
+      <div *ngFor="let conversation of community.conversations | slice:0:2">
+        <conversation-summary [document]="conversation"></conversation-summary>
+      </div>
+    </div>
+  </div>
+</div>

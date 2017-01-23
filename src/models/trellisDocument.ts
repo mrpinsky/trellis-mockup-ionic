@@ -18,7 +18,7 @@ export class TrellisDocument implements TrellisDoc {
     this.editors = [creatorId];
     this.short_text = opts.title || '';
     this.long_text = opts.content || '';
-    this.reply_parents = (opts.inReplyTo && opts.inReplyTo.reply_parents) || [];
+    this.reply_parents = (opts.inReplyTo && opts.inReplyTo.reply_parents.map(elem => elem)) || [];
     this.reply_parents.push(this.id);
     this.reactions = { likes: [], agrees: [], disagrees: [] };
     this.$permission = opts.perm || 2;

@@ -14,8 +14,8 @@
         </div>
         <div class="shrink-panel row wrap">
           <div class="conversation-information">published by:</div>
-          <div class="profile-name" *ngFor="let editor of document.editors">
-            {{fixtures.getProfileById(editor).short_text}}{{last ? '' : ',&ensp;'}}
+          <div class="profile-name" *ngFor="let editor of document.editors; let $last = last">
+            {{fixtures.getProfileById(editor).short_text}}{{$last ? '' : ',&ensp;'}}
           </div>
         </div>
       </div>
@@ -48,8 +48,8 @@
           <use href="#svg-icon-torsos-all"></use>
         </svg>
         <!-- <div *ngIf="!MatchMedia.xs">SHARED WITH:</div> -->
-        <div class="community-name shrinkable" *ngFor="let c of document.communities">
-          {{fixtures.getCommunityById(c).short_text}}{{last ? '' : ','}}
+        <div class="community-name shrinkable" *ngFor="let c of document.communities; let $last = last">
+          {{fixtures.getCommunityById(c.id).name}}{{$last ? '' : ','}}
         </div>
       </div>
       <div class="flex child-horizontal-margin wrap" *ngIf="preview === 'full' &amp;&amp; document.tags.length">
@@ -57,7 +57,7 @@
           <use href="#svg-icon-florence-icons-05"></use>
         </svg>
         <!-- <div *ngIf="!MatchMedia.xs">TAGS:</div> -->
-        <div class="tag-name" *ngFor="let tag of document.tags track by tag">
+        <div class="tag-name" *ngFor="let tag of document.tags">
           {{tag}}{{last ? '' : ','}}
         </div>
       </div>
@@ -70,7 +70,7 @@
         <svg class="icon-2">
           <use href="#svg-icon-florence-icons-02"></use>
         </svg>
-        <div class="tally">{{document.replies.length}} </div>
+        <div class="tally">{{replies}} </div>
       </div>
       <div class="flex child-horizontal-margin padding-left padding-right border-left-4 border-right-4">
         <!-- <div *ngIf="!MatchMedia.xs" class="flex nostretch">REACTIONS</div> -->

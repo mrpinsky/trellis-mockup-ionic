@@ -69,5 +69,6 @@ interface TrellisCommunity {
   moderators: TrellisProfile[],
   tags: string[],
   members: TrellisProfile[],
-  conversations: number[];
+  conversations: number[],
+  addConversation(convo: TrellisDoc): void,
 }

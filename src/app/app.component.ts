@@ -3,15 +3,19 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { ConversationDetailPage } from '../pages/conversation-detail/conversation-detail';
-// import { ConversationListPage } from '../pages/conversation-list/conversation-list';
+import { ConversationListPage } from '../pages/conversation-list/conversation-list';
+import { CommunityListPage } from '../pages/community-list/community-list';
+import { CommunityDetailPage } from '../pages/community-detail/community-detail';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = ConversationDetailPage;
+  // rootPage = ConversationDetailPage;
   // rootPage = ConversationListPage;
+  // rootPage = CommunityListPage;
+  rootPage = CommunityDetailPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

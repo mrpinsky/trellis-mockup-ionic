@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<div class="inset-list-panel list-panel ion-content scroll-content">
+<div class="inset-list-panel list-panel ion-content">
   <div *ngIf="!list">...loading...</div>
   <community-summary [community]="community" *ngFor="let community of communities | slice:0:limit.communities"></community-summary>
   <div class="trellis-button fg-white bg-blue-1" (tap)="more.communities()" *ngIf="communities.length > limit.communities">...SHOW MORE COMMUNITIES...</div>

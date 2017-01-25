@@ -12,7 +12,7 @@
 
 </ion-header>
 
-<div class="inset-list-panel list-panel ion-content scroll-content">
+<div class="inset-list-panel list-panel ion-content">
   <conversation-summary [document]="conversation" *ngFor="let conversation of conversations | slice:0:limit.conversations"></conversation-summary>
   <div *ngIf="!conversations" class="font-weight-medium">
     .... loading content ....

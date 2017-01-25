@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter, ElementRef } from '@angular/core';
 
-import { TrellisDocument } from '../../models/TrellisDocument';
 import { FixtureData } from '../../providers/fixture-data';
 
 import Quill from 'quill';
@@ -16,12 +15,12 @@ import Quill from 'quill';
   templateUrl: 'reply-editor.html'
 })
 export class ReplyEditorComponent {
-  @Output() onPublished: EventEmitter<TrellisDocument>;
+  @Output() onPublished: EventEmitter<TrellisDoc>;
   @Output() onClosed: EventEmitter<boolean>;
   quill: Quill.Quill;
 
   constructor(private fixtures: FixtureData, private el: ElementRef) {
-    this.onPublished = new EventEmitter<TrellisDocument>();
+    this.onPublished = new EventEmitter<TrellisDoc>();
     this.onClosed = new EventEmitter<boolean>();
     setTimeout(this.initializeQuill, 1000)
   }

@@ -63,7 +63,12 @@ ul[dnd-list] .dndPlaceholder {
     min-height: 25px;
 }
 
-.ql-editor, [contenteditable] {
-    -webkit-user-select: text;
-    user-select: text;
+.ql-editor,
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.ion-content {
+  padding-top: 56px;
 }

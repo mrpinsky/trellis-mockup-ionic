@@ -1,1 +1,37 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="trellis">
+  <ion-header no-padding>
+    <ion-toolbar no-padding>
+      <div class="topline child-horizontal-margin-double">
+        <div class="topline-item primary-topline" type="button">
+          <svg class="icon-6">
+            <use href="/assets/kstf-icon-logo-darkbkgd.svg#Layer_1"></use>
+          </svg>
+        </div>
+        <div class="topline-item primary-topline">
+          <div class="flex">
+            <svg class="icon-3 fill-white margin-right">
+              <use href="#svg-icon-grid-lines-streamline"></use>
+            </svg>
+          </div>
+          <span>
+            CONVERSATIONS
+          </span>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <a ion-item menuClose [routerLink]="['/communities']">
+        Communities
+      </a>
+      <a ion-item menuClose [routerLink]="['/conversations']">
+        Conversations
+      </a>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div #trellis>
+  <router-outlet></router-outlet>
+</div>

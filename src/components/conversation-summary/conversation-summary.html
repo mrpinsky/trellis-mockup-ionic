@@ -83,8 +83,8 @@
 
   </div>
 
-  <div class="snippet conversation-body" *ngIf="snippet">
-    <div trellis-bind-html="snippet"></div>
+  <div class="snippet conversation-body">
+    <div>{{document.content}}</div>
   </div>
   <!-- <div class="snippet conversation-body" *ngIf="!MatchMedia.xs &amp;&amp; !snippet" hm-pressup="fullText = !fullText">
     <div *ngIf="!fullText">

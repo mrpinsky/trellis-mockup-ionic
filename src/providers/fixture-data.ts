@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { TrellisFaker } from './trellis-faker';
 import faker from 'faker';
 
-import { Profile, Community, TrellisDocument } from '../models/index';
+import { TrellisDocument } from '../models/index';
 
 /*
   Generated class for the FixtureData provider.
@@ -127,7 +127,7 @@ export class FixtureData {
     const reply_parents = (opts && opts.inReplyTo && this.getDocumentById(opts.inReplyTo).reply_parents) || [];
     reply_parents.push(this.nextDocumentId);
 
-    const reply: TrellisDocument = new TrellisDocument(
+    const reply: TrellisDoc = new TrellisDocument(
       this.nextDocumentId,
       creatorId,
       opts
@@ -137,7 +137,7 @@ export class FixtureData {
     return reply;
   }
 
-  publishDocument(doc: TrellisDocument) {
+  publishDocument(doc: TrellisDoc) {
     this.$$documents.push(doc);
   }
 

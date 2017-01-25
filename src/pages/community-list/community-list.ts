@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 
 import { DisplayLimit } from '../../providers/display-limit';
 import { FixtureData } from '../../providers/fixture-data';

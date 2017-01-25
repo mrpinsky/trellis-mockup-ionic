@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 
 /*
   Generated class for the CommunityDetail page.
@@ -12,11 +11,5 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'community-detail.html'
 })
 export class CommunityDetailPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CommunityDetailPage');
-  }
-
+  @Input() community: TrellisCommunity;
 }

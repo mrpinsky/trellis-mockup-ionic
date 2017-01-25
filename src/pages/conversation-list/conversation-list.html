@@ -6,21 +6,18 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-toolbar>
     <ion-title>Conversations</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 
 </ion-header>
 
-
-<ion-content padding>
-  <div class="inset-list-panel list-panel">
-    <conversation-summary [document]="conversation" *ngFor="let conversation of conversations | slice:0:limit.conversations"></conversation-summary>
-    <div *ngIf="!conversations" class="font-weight-medium">
-      .... loading content ....
-    </div>
-    <div type="button" class="uppercase font-small bkgd-blue-darken white text-shadow row text-" (tap)="more.conversations()" *ngIf="conversations.length > limit.conversations">
-      show more conversations
-    </div>
+<div class="inset-list-panel list-panel ion-content scroll-content">
+  <conversation-summary [document]="conversation" *ngFor="let conversation of conversations | slice:0:limit.conversations"></conversation-summary>
+  <div *ngIf="!conversations" class="font-weight-medium">
+    .... loading content ....
   </div>
-</ion-content>
+  <div type="button" class="uppercase font-small bkgd-blue-darken white text-shadow row text-" (tap)="more.conversations()" *ngIf="conversations.length > limit.conversations">
+    show more conversations
+  </div>
+</div>

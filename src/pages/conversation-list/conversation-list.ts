@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 
 import { DisplayLimit } from '../../providers/display-limit';
 import { FixtureData } from '../../providers/fixture-data';
-
-import { TrellisDocument } from '../../models/index';
 
 /*
   Generated class for the ConversationList page.
@@ -20,8 +17,6 @@ export class ConversationListPage {
   $conversations: TrellisDoc[];
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
     private fixtures: FixtureData,
     private dl: DisplayLimit
   ) {

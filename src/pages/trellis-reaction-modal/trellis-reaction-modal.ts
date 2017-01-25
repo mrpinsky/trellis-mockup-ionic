@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 import { FixtureData } from '../../providers/fixture-data';
 
@@ -13,19 +13,13 @@ import { FixtureData } from '../../providers/fixture-data';
   templateUrl: 'trellis-reaction-modal.html'
 })
 export class TrellisReactionModalPage {
-  reactions: {
-    likes: number[],
-    agrees: number[],
-    disagrees: number[],
-  };
+  reactions: TrellisReactions;
 
   constructor(
     public viewCtrl: ViewController,
-    public navCtrl: NavController,
-    public navParams: NavParams,
     private fixtures: FixtureData
   ) {
-    this.reactions = this.navParams.get('reactions');
+    this.reactions = { likes: [], agrees: [], disagrees: [] } // this.navParams.get('reactions');
   }
 
   get likes() {

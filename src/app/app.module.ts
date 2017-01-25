@@ -1,27 +1,36 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { BrowserModule } from '@angular/platform-browser';
+import { Router, RouterModule } from '@angular/router';
 
-import { FixtureData } from '../providers/fixture-data';
-import { TrellisFaker } from '../providers/trellis-faker';
-import { DisplayLimit } from '../providers/display-limit';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+// import { Storage } from '@ionic/storage';
+
+import { FixtureData, TrellisFaker, DisplayLimit } from '../providers/index';
 
 import { MyApp } from './app.component';
-import { ConversationDetailPage } from '../pages/conversation-detail/conversation-detail';
-import { ConversationListPage } from '../pages/conversation-list/conversation-list';
-import { CommunityListPage } from '../pages/community-list/community-list';
-import { CommunityDetailPage } from '../pages/community-detail/community-detail';
-import { TrellisReactionModalPage } from '../pages/trellis-reaction-modal/trellis-reaction-modal';
+import { ConversationDetailPage, ConversationListPage, CommunityDetailPage, CommunityListPage, NotFoundPage, TrellisReactionModalPage } from '../pages/index';
 
-import { PostFooterComponent } from '../components/post-footer/post-footer';
-import { FloCommentComponent } from '../components/flo-comment/flo-comment';
-import { ReactionStackComponent } from '../components/reaction-stack/reaction-stack';
-import { ToplineComponent } from '../components/topline/topline';
-import { DetailToplineComponent } from '../components/detail-topline/detail-topline';
-import { ReplyEditorComponent } from '../components/reply-editor/reply-editor';
-import { TrellisMenuComponent } from '../components/trellis-menu/trellis-menu';
-import { ConversationSummaryComponent } from '../components/conversation-summary/conversation-summary';
-import { CommunitySummaryComponent } from '../components/community-summary/community-summary';
+import { ConversationSummaryComponent, CommunitySummaryComponent, PostFooterComponent, FloCommentComponent, ReactionStackComponent, ToplineComponent, DetailToplineComponent, ReplyEditorComponent, TrellisMenuComponent } from '../components/index';
+
+const routes = [
+  {
+    path: 'communities',
+    component: CommunityListPage,
+  },
+  {
+    path: 'conversations',
+    component: ConversationListPage,
+  },
+  {
+    path: '',
+    redirectTo: '/conversations',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component: NotFoundPage,
+  }
+];
 
 @NgModule({
   declarations: [
@@ -40,8 +49,11 @@ import { CommunitySummaryComponent } from '../components/community-summary/commu
     ReplyEditorComponent,
     TrellisReactionModalPage,
     TrellisMenuComponent,
+    NotFoundPage,
   ],
   imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -52,6 +64,7 @@ import { CommunitySummaryComponent } from '../components/community-summary/commu
     CommunityListPage,
     CommunityDetailPage,
     TrellisReactionModalPage,
+    NotFoundPage,
   ],
   providers: [
     FixtureData,

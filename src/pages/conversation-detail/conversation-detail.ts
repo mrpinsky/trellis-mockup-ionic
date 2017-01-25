@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
-
 import { FixtureData } from '../../providers/fixture-data';
 import { TrellisDocument } from '../../models/index';
 
@@ -13,7 +11,7 @@ export class ConversationDetailPage {
   replying: boolean;
   @Input() $rootPost: TrellisDoc;
 
-  constructor(public navCtrl: NavController, private fixtures: FixtureData) {
+  constructor(private fixtures: FixtureData) {
     this.$rootPost = fixtures.documents[0];
   }
 

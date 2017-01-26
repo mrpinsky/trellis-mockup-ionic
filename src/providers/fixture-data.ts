@@ -52,7 +52,7 @@ export class FixtureData {
         id: 2,
         editors: [2],
         title: '',
-        content: `This is a reply with one child.  ${faker.lorem.lines(2)}`,
+        content: `This is a reply with one child.  ${faker.lorem.paragraph()}`,
         reactions: {
           likes: [],
           dislikes: [],
@@ -65,7 +65,7 @@ export class FixtureData {
         id: 3,
         editors: [3],
         title: '',
-        content: `This is a reply with no children.  ${faker.lorem.lines(2)}`,
+        content: `This is a reply with no children.  ${faker.lorem.paragraph()}`,
         reactions: {
           likes: [],
           dislikes: [2, 1],
@@ -78,7 +78,7 @@ export class FixtureData {
         id: 4,
         editors: [1],
         title: '',
-        content: `This is a grandchild reply with no children  ${faker.lorem.lines(2)}`,
+        content: `This is a grandchild reply with no children  ${faker.lorem.paragraph()}`,
         reactions: {
           likes: [],
           dislikes: [],
@@ -91,7 +91,7 @@ export class FixtureData {
         id: 5,
         editors: [3],
         title: '',
-        content: `This is a reply with child and grandchild.  ${faker.lorem.lines(2)}`,
+        content: `This is a reply with child and grandchild.  ${faker.lorem.paragraph()}`,
         reactions: {
           likes: [],
           dislikes: [],
@@ -104,7 +104,7 @@ export class FixtureData {
         id: 6,
         editors: [1],
         title: '',
-        content: `This is a grandchild reply with child.  ${faker.lorem.lines(2)}`,
+        content: `This is a grandchild reply with child.  ${faker.lorem.paragraph()}`,
         reactions: {
           likes: [],
           dislikes: [],
@@ -117,7 +117,7 @@ export class FixtureData {
         id: 7,
         editors: [2],
         title: '',
-        content: `This is a great-grandchild reply (no children).  ${faker.lorem.lines(2)}`,
+        content: `This is a great-grandchild reply (no children).  ${faker.lorem.paragraph()}`,
         reactions: {
           likes: [1, 2],
           dislikes: [3],
@@ -130,7 +130,7 @@ export class FixtureData {
         id: 8,
         editors: [3],
         title: '',
-        content: `This is another root post that shouldn\'t be rendered.  ${faker.lorem.lines(2)}`,
+        content: `This is another root post that shouldn\'t be rendered.  ${faker.lorem.paragraph()}`,
         reactions: {
           likes: [],
           dislikes: [],
